@@ -6,7 +6,8 @@ public class FirstHomework {
      * 1.Write a Java program to print 'Hello' on screen and then print your name on a separate line
      */
     public static void printName(String name) {
-        System.out.println("Hello" + name);
+
+        System.out.println("Hello " + name);
     }
 
     /**
@@ -82,15 +83,42 @@ public class FirstHomework {
     }
 
     /**
-     5.Write a Java program to get a number and print whether it is positive or negative.
+     * 5.Write a Java program to get a number and print whether it is positive or negative.
      */
     public static void findPositiveOrNegativeNumber(int n) {
-        if (n>0) {
+        if (n > 0) {
             System.out.println("The number is positive!");
-        } else if(n<0) {
+        } else if (n < 0) {
             System.out.println("The number is negative!");
-        }else {
+        } else {
             System.out.println("The number is zero!");
+        }
+    }
+
+    /**
+     * 6.Take three numbers and print the greatest number.
+     */
+    public static int printTheGreatestNumber(int a, int b, int c) {
+        if (a > b && a > c) {
+            return a;
+        } else if (b > a && b > c) {
+            return b;
+        } else {
+            return c;
+        }
+    }
+
+    /**
+     * 7.Write a Java program that takes an integer m and display the value of n is 1 when m is larger than 0,
+     * 0 when m is 0 and -1 when m is less than 0.
+     */
+    public static int displayValueOfNumber(int m, int n) {
+        if (m > 0) {
+            return n = 1;
+        } else if (m == 0) {
+            return n = 0;
+        } else {
+            return n = -1;
         }
     }
 
@@ -110,17 +138,16 @@ public class FirstHomework {
     }
 
     /**
-     2.Write a Java program to print the odd numbers from 1 to 99. Prints one number per line
+     * 2.Write a Java program to print the odd numbers from 1 to 99. Prints one number per line
      */
-    public static void printTheOddNumber(int n){
-        while (n<=99){
-            if(n%2==1){
-                System.out.println("Afiseaza numarul: " +n);
+    public static void printTheOddNumber(int n) {
+        while (n <= 99) {
+            if (n % 2 == 1) {
+                System.out.println("Afiseaza numarul: " + n);
             }
             n++;
         }
     }
-
 
 
     public static void main(String[] args) {
@@ -142,6 +169,12 @@ public class FirstHomework {
         System.out.println("Rezultatul este: " + result);
 
         findPositiveOrNegativeNumber(35);
+
+        int greatestNr = printTheGreatestNumber(25, 78, 87);
+        System.out.println("Cel mai mare numar este: " + greatestNr);
+
+        int displayNr = displayValueOfNumber(10, 0);
+        System.out.println("Numarul afisat este: " + displayNr);
 
         int factorial = calculateFactorial(1, 7);
         System.out.println("Factorialul Numarului este: " + factorial);
