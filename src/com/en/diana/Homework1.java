@@ -28,6 +28,29 @@ public class Homework1 {
 
 //    IF instruction + IF instruction( level 1) methods
 
+    public static int compare(int a, int b, int c) {
+        int no = 0;
+        if (a > b && b > c) {
+            no = a;
+            System.out.println(a);
+        } else if (a < b && b < c) {
+            no = c;
+            System.out.println(c);
+        } else if (a > b && b < c) {
+            if (a > c) {
+                no = a;
+                System.out.println(a);
+            } else {
+                no = c;
+                System.out.println(c);
+            }
+        }else if (a < b && b > c) {
+            no = b;
+            System.out.println(b);
+        }
+        return no;
+    }
+
     public static int week(int w) {
         if (w == 1) {
             System.out.println("Monday");
@@ -159,6 +182,12 @@ public class Homework1 {
         System.out.println("Sunt " + calc + " secunde!");
 
         // IF instruction + IF instruction( level 1)
+        /*6. Take three numbers and print the greatest number.
+        Test Data Input the 1st number: 25 Input the 2nd number: 78
+        Input the 3rd number: 87 */
+        System.out.println("Exercitiul 6 de la IF:");
+        System.out.println("The greatest: "+compare(25, 78, 87));
+
         //8. Write a Java program that takes an integer between 1 and 7 and displays the name of the weekday.
         System.out.println("Exercitiul 8 de la IF: ");
 
