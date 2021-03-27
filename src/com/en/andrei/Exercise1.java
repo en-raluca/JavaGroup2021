@@ -144,16 +144,170 @@ public class Exercise1 {
         System.out.println(result);
     }
 
+    // IF INSTRUCTION
+
+    /**
+     * 1. Write a program in Java to check if a number is even or odd in Java.
+     * A number is called even if it is completely divisible by 2 and odd if it’s not completely divisible by 2.
+     *
+     * @param number
+     */
+    public static void checkEvenOrOdd(int number) {
+        if (number % 2 == 0) {
+            System.out.println("The number is even");
+        } else {
+            System.out.println("The number is odd");
+        }
+    }
+
+    /**
+     * 2. Write a Java program to compare two numbers.
+     */
+    public static void compareNumbers() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Input first number: ");
+        int firstNumber = scanner.nextInt();
+        System.out.print("Second first number: ");
+        int secondNumber = scanner.nextInt();
+        if (firstNumber > secondNumber) {
+            System.out.println(firstNumber + " != " + secondNumber);
+            System.out.println(firstNumber + " > " + secondNumber);
+            System.out.println(firstNumber + " >= " + secondNumber);
+        } else if (firstNumber < secondNumber) {
+            System.out.println(firstNumber + " != " + secondNumber);
+            System.out.println(firstNumber + " < " + secondNumber);
+            System.out.println(firstNumber + " <= " + secondNumber);
+        } else {
+            System.out.println(firstNumber + " = " + secondNumber);
+        }
+    }
+
+    /**
+     * 13: Write a Java program that determines a student’s grade.
+     * The program will read three types of scores(quiz, mid-term, and final scores)
+     * and determine the grade based on the following rules:
+     * -if the average score >=90% =>grade=A
+     * -if the average score >= 70% and <90% => grade=B
+     * -if the average score>=50% and <70% =>grade=C
+     * -if the average score<50% =>grade=F
+     *
+     * @param quizScore
+     * @param midTermScore
+     * @param finalScore
+     */
+    public static void printStudentGrade(int quizScore, int midTermScore, int finalScore) {
+        int averageScore = (quizScore + midTermScore + finalScore) / 3;
+        System.out.println(averageScore);
+        if (averageScore >= 90) {
+            System.out.println("Grade A");
+        } else if (averageScore >= 70 && averageScore < 90) {
+            System.out.println("Grade B");
+        } else if (averageScore >= 50 && averageScore < 70) {
+            System.out.println("Grade C");
+        } else if (averageScore < 50) {
+            System.out.println("Grade F");
+        } else {
+            System.out.println("Invalid input");
+        }
+    }
+
+    // IF INSTRUCTIONS(level 1)
+
+    /**
+     * 3) Given two int values, return their sum. Unless the two values are the same, then return double their sum.
+     *
+     * @param num1
+     * @param num2
+     * @return
+     */
+    public static int sumDouble(int num1, int num2) {
+        int sum = num1 + num2;
+        if (num1 == num2) {
+            sum += sum;
+        }
+        return sum;
+    }
+
+    /**
+     * 10) We'll say that a number is "teen" if it is in the range 13..19 inclusive.
+     * Given 2 int values, return true if one or the other is teen, but not both.
+     *
+     * @param num1
+     * @param num2
+     * @return
+     */
+    public static boolean loneTeen(int num1, int num2) {
+        boolean isTeen = false;
+        if ((num1 >= 13 && num1 <= 19) && (num2 < 13 || num2 > 19)) {
+            isTeen = true;
+        } else if ((num2 >= 13 && num2 <= 19) && (num1 < 13 || num1 > 19)) {
+            isTeen = true;
+        }
+        return isTeen;
+    }
+
+    // FOR/WHILE LOOPS
+
+    /**
+     * 1. Write a Java program to calculate factorial of an integer number
+     *
+     * @param number
+     * @return
+     */
+    public static int calculateFactorialRecursive(int number) {
+        if (number == 0) return 1;
+        return number * (calculateFactorialRecursive(number - 1));
+    }
+
+    /**
+     * 4. Write a program in Java to display the first 10 natural numbers.
+     */
+    public static void printFirstTenNaturalNumbers() {
+        System.out.println("The first 10 natural numbers are: ");
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i);
+        }
+    }
+
+    /**
+     * 5. Write a program in Java to display the n terms of odd natural number and their sum.
+     */
+    public static void displayTermsAndSumOfOddNumbers() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Input number of terms is: ");
+        int terms = scanner.nextInt();
+        int sum = 0;
+        System.out.println("The odd numbers are: ");
+        for (int i = 1; i <= terms; i++) {
+            System.out.println(i * 2 - 1);
+            sum += i * 2 - 1;
+        }
+        System.out.println("The Sum of odd Natural Number up to " + terms + " terms is: " + sum);
+    }
+
     public static void main(String[] args) {
-        printName("Andrei");
-        printSumOfThreeNumbers(74, 36, 5);
-        printProduct();
-        printOperations();
-        printAreaAndPerimeter(5.6, 8.5);
-        swapTwoVariables(5, 10);
-        computeInteger();
-        convertSeconds(86399);
-        calculateDollarFromEuro(10);
-        convertToSeconds(12, 18, 48);
+//        printName("Andrei");
+//        printSumOfThreeNumbers(74, 36, 5);
+//        printProduct();
+//        printOperations();
+//        printAreaAndPerimeter(5.6, 8.5);
+//        swapTwoVariables(5, 10);
+//        computeInteger();
+//        convertSeconds(86399);
+//        calculateDollarFromEuro(10);
+//        convertToSeconds(12, 18, 48);
+//        checkEvenOrOdd(10);
+//        compareNumbers();
+//        printStudentGrade(80, 68, 90);
+//        int result = sumDouble(1,2);
+//        System.out.println(result);
+//        boolean result1 = loneTeen(13, 99);
+//        System.out.println(result1);
+//        boolean result2 = loneTeen(13, 13);
+//        System.out.println(result2);
+//        int fact = calculateFactorialRecursive(4);
+//        System.out.println(fact);
+//        printFirstTenNaturalNumbers();
+        displayTermsAndSumOfOddNumbers();
     }
 }
