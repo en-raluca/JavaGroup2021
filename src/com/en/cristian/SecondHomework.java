@@ -53,14 +53,10 @@ public class SecondHomework {
      */
     public static boolean testSecondStrContainsFirstStr(String str1, String str2) {
         boolean result = false;
-        for (int i = 0; i < str2.length() - 1; i++) {
-            if (str2.charAt(1) == str1.charAt(0)) {
-                for (int j = 0; j < str1.length(); j++) {
-                    if ((i + j) < str2.length() && str1.charAt(j) == str2.charAt(i + j) && j == str1.length() - 1) {
-                        result = true;
-                    }
-                }
-            }
+        if(str1.equals(str2)){
+            result=true;
+        }else{
+            result=false;
         }
         return result;
     }
