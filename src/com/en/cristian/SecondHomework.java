@@ -1,6 +1,52 @@
 package com.en.cristian;
 
 public class SecondHomework {
+
+    //Arrays
+
+    /**
+     * 1.Write a Java program to test if 10 appears as either the first or last element of an array of integers.
+     * The length of the array must be greater than or equal to 2
+     */
+    public static boolean testFirstAndLastNumber(int[] array) {
+        boolean result = false;
+        if (array[0] == 10 && array[array.length - 1] == 10) {
+            result= true;
+        } else {
+           result= false;
+        }
+        return result;
+    }
+
+    /**
+     2.Write a Java program to test if the first and the last element of an array of integers are same.
+     The length of the array must be greater than or equal to 2
+     */
+    public static boolean checkFirstAndLastNumberAreTheSame(int[] array) {
+        boolean result = false;
+        if (array[0] == 10 && array[array.length - 1] == 10) {
+            result= true;
+        } else {
+            result= false;
+        }
+        return result;
+    }
+
+    /**
+     3.Write a program to test that a given array of integers of length 2 contains a 4 or a 7.
+     */
+    public static boolean checkIfArrayContainsANumber(int[] array) {
+        boolean result = false;
+        if (array[0] == 4 || array[array.length - 1] == 7) {
+            result= true;
+        } else {
+            result= false;
+        }
+        return result;
+    }
+
+    //Strings
+
     /**
      * 1.Write a Java program to convert a given string into lowercase.
      */
@@ -53,15 +99,47 @@ public class SecondHomework {
      */
     public static boolean testSecondStrContainsFirstStr(String str1, String str2) {
         boolean result = false;
-        if(str1.equals(str2)){
-            result=true;
-        }else{
-            result=false;
+        if (str1.equals(str2)) {
+            result = true;
+        } else {
+            result = false;
         }
         return result;
     }
 
     public static void main(String[] args) {
+
+        //Arrays
+        int[] array = new int[7];
+        array[0] = 10;
+        array[1] = -20;
+        array[2] = 0;
+        array[3] = 30;
+        array[4] = 40;
+        array[5] = 60;
+        array[6] = 10;
+        boolean result = testFirstAndLastNumber(array);
+        System.out.println(result);
+
+        int[] array1 = new int[7];
+        array1[0] = 50;
+        array1[1] = -20;
+        array1[2] = 0;
+        array1[3] = 30;
+        array1[4] = 40;
+        array1[5] = 60;
+        array1[6] = 10;
+        boolean result1 = checkFirstAndLastNumberAreTheSame(array1);
+        System.out.println(result1);
+
+        int array2[]=new int[2];
+        array2[0]=5;
+        array2[1]=7;
+        boolean result2=checkIfArrayContainsANumber(array2);
+        System.out.println(result2);
+
+
+        //Strings
         String convertStringToLowerCase = convertGivenString("THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.");
         System.out.println(convertStringToLowerCase);
 
@@ -74,7 +152,7 @@ public class SecondHomework {
         String firstThreeCharacter = takeFirstThreeCharacter(" ");
         System.out.println(firstThreeCharacter);
 
-        boolean secondStrContainsFirstStr=testSecondStrContainsFirstStr("Once in a blue moon", "See eye to eye");
+        boolean secondStrContainsFirstStr = testSecondStrContainsFirstStr("Once in a blue moon", "See eye to eye");
         System.out.println(secondStrContainsFirstStr);
     }
 }
