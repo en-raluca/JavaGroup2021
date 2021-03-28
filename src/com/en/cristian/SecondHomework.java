@@ -107,6 +107,38 @@ public class SecondHomework {
         return result;
     }
 
+    /**
+     * 1.Given a string, return a new string where "not " has been added to the front.
+     * However, if the string already begins with "not", return the string unchanged.
+     * Note: use .equals() to compare 2 strings.
+     * notString("candy") → "not candy"
+     * notString("x") → "not x"
+     * notString("not bad") → "not bad"
+     */
+    public static String returnANewString(String string) {
+        String newString = "";
+        if (string.length() >= 3 && string.substring(0, 3).equals("not")) {
+            newString = string;
+        } else
+            newString = "not " + string;
+        return newString;
+    }
+
+    /**
+     * 9.Given a string, return a string made of the first 2 chars (if present),
+     * however include first char only if it is 'o' and include the second only if it is 'z', so "ozymandias" yields "oz".
+     * startOz("ozymandias") → "oz"
+     */
+    public static String returnStringWithTwoCharacters(String string) {
+        String result = "";
+        if (string.length() >= 2 && string.charAt(0) == 'o' && string.charAt(1) == 'z') {
+            result = result + string.charAt(0) + string.charAt(1);
+        } else {
+            result =string;
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
 
         //Arrays
@@ -154,5 +186,19 @@ public class SecondHomework {
 
         boolean secondStrContainsFirstStr = testSecondStrContainsFirstStr("Once in a blue moon", "See eye to eye");
         System.out.println(secondStrContainsFirstStr);
+
+        String newStr = returnANewString("candy");
+        System.out.println(newStr);
+        String newStr1 = returnANewString("x");
+        System.out.println(newStr1);
+        String newStr2 = returnANewString("not bad");
+        System.out.println(newStr2);
+
+        String string = returnStringWithTwoCharacters("ozymadias");
+        System.out.println(string);
+        String string1 = returnStringWithTwoCharacters("bzoo");
+        System.out.println(string1);
+        String string2 = returnStringWithTwoCharacters("oxx");
+        System.out.println(string2);
     }
 }
