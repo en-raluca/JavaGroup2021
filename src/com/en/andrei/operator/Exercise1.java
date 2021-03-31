@@ -1,4 +1,4 @@
-package com.en.andrei;
+package com.en.andrei.operator;
 
 import java.util.Scanner;
 
