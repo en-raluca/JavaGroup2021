@@ -3,7 +3,7 @@
 // (powered by FernFlower decompiler)
 //
 
-package com.en.elena;
+package com.en.elena.arraystrings;
 
 public class StringsExercises {
     public StringsExercises() {

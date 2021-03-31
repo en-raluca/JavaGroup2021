@@ -139,6 +139,85 @@ public class SecondHomework {
         return result;
     }
 
+    /**
+     * Return true if the given string contains between 1 and 3 'e' chars.
+     * stringE("Hello") → true
+     * stringE("Heelle") → true
+     * stringE("Heelele") → false
+     */
+    public static boolean checkE(String str) {
+        boolean result = false;
+        int eCount = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == 'e') {
+                eCount++;
+            }
+        }
+        if (eCount >= 1 && eCount <= 3) {
+            result = true;
+        } else {
+            result = false;
+        }
+        return result;
+    }
+
+    /**
+     * 12.Given a non-empty string and an int N, return the string made starting with char 0,
+     * and then every Nth char of the string. So if N is 3, use char 0, 3, 6, ... and so on. N is 1 or more.
+     * everyNth("Miracle", 2) → "Mrce"
+     * everyNth("abcdefg", 2) → "aceg"
+     * everyNth("abcdefg", 3) → "adg"
+     */
+    public static String everyNth(String text, int position) {
+        String result = "";
+
+        for (int i = 0; i < text.length(); i=i+position) {
+            result = result +text.charAt(i);
+        }
+        return result;
+    }
+
+    /**
+     Given a string name, e.g. "Bob", return a greeting of the form "Hello Bob!".
+     helloName("Bob") → "Hello Bob!"
+     helloName("Alice") → "Hello Alice!"
+     helloName("X") → "Hello X!"
+     */
+    public static String helloName(String name){
+        String result= "Hello " + name + "!";
+        return result;
+    }
+
+    /**
+     Given two strings, a and b, return the result of putting them together in the order abba, e.g. "Hi" and "Bye" returns "HiByeByeHi".
+     public String makeAbba(String a, String b) {
+     }
+     makeAbba("Hi", "Bye") → "HiByeByeHi"
+     makeAbba("Yo", "Alice") → "YoAliceAliceYo"
+     makeAbba("What", "Up") → "WhatUpUpWhat"
+     */
+    public static String makeAbba(String a, String b){
+        String result=a+b+b+a;
+        return result;
+    }
+
+    /**
+     13.Given a string, return a string length 1 from its front, unless front is false,
+     in which case return a string length 1 from its back. The string will be non-empty.
+     theEnd("Hello", true) → "H"
+     theEnd("Hello", false) → "o"
+     theEnd("oh", true) → "o"
+     */
+    public static String theEnd(String text, boolean verify){
+        String result="";
+        if(verify==true){
+            result=result+text.substring(0,1);
+        }else {
+            result=result+text.substring(text.length()-1);
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
 
         //Arrays
@@ -200,5 +279,20 @@ public class SecondHomework {
         System.out.println(string1);
         String string2 = returnStringWithTwoCharacters("oxx");
         System.out.println(string2);
+
+        boolean resultE = checkE("Hello");
+        System.out.println(resultE);
+
+        String text = everyNth("Miracle", 2);
+        System.out.println(text);
+
+        String name=helloName("Cristian");
+        System.out.println(name);
+
+        String txt=makeAbba("Hi", "Bye");
+        System.out.println(txt);
+
+        String txtEnd=theEnd("Hello", true);
+        System.out.println(txtEnd);
     }
 }
