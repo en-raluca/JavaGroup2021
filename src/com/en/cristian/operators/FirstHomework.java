@@ -1,4 +1,4 @@
-package com.en.cristian;
+package com.en.cristian.operators;
 
 public class FirstHomework {
 
