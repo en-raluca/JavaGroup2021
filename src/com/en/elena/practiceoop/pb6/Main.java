@@ -6,8 +6,8 @@ public class Main {
         ProdAlimentar alimentar1 = new ProdAlimentar(1, "Milk", 2,500);
         ProdElectronic electronic1 = new ProdElectronic(1, "Oven", 2500, "Extra");
         System.out.println(accesoriu1.applyDiscount(20));
-        System.out.println(alimentar1.toString());
-        System.out.println(electronic1 + " Discout " + electronic1.applyDiscount(60));
+        System.out.println(alimentar1.getNume().toString());
+        System.out.println(electronic1.getNume().toString() + " Discout " + electronic1.applyDiscount(60));
 
 
 

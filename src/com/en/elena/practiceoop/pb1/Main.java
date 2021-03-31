@@ -10,7 +10,7 @@ public class Main {
         System.out.println(flower2.toString());
         flower2.setName("Snowdrop");
         flower2.setNrPetals(4);
-        System.out.println(flower2.getColor());
+        System.out.println(flower2.getColor().toString());
         flower1.getColor();
         flower1.setColor("blue");
         System.out.println(flower2.toString() + " and " + flower1.toString());

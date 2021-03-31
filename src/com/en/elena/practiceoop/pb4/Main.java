@@ -12,10 +12,10 @@ public class Main {
         employee2.setAddress("Brasov");
         System.out.println(employee2.toString());
         employee3.setMonthlySalary(55555);
-        System.out.println(employee3.toString());
-        System.out.println(employee4.toString());
-        System.out.println(employee5.calculatePay());
-        System.out.println(employee5.toString());
+        System.out.println("A full time employee is " + employee3.getName().toString());
+        System.out.println("A full time employee is " + employee4.getName().toString());
+        System.out.println("Salary for " + employee5.getName().toString() + "is" + employee5.calculatePay());
+        System.out.println(employee5.getName().toString() + " is a part time employee.");
 
     }
 }

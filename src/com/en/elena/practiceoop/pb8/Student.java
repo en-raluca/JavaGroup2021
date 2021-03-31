@@ -29,4 +29,12 @@ public class Student {
     public void setAnInscriere(int anInscriere) {
         this.anInscriere = anInscriere;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "nume='" + nume + '\'' +
+                ", anInscriere=" + anInscriere +
+                '}';
+    }
 }

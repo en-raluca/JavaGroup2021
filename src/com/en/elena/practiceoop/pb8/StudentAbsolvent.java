@@ -42,4 +42,13 @@ public class StudentAbsolvent extends Student {
     public void setMediaAnilor(double mediaAnilor) {
         this.mediaAnilor = mediaAnilor;
     }
+
+    @Override
+    public String toString() {
+        return "StudentAbsolvent{" +
+                "anAbsolvire=" + anAbsolvire +
+                ", notaLicenta=" + notaLicenta +
+                ", mediaAnilor=" + mediaAnilor +
+                '}';
+    }
 }

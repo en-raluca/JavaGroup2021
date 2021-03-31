@@ -11,28 +11,22 @@ public class Main {
         Fish fish1 = new Fish("Mircea", "Pastrav");
         Fish fish2 = new Fish("Adda", "Betta");
 
-        cat1.play();
-        cat1.getName();
-        System.out.println("Pisica" + cat1);
+        System.out.println("Cat " + cat1.getName().toString());
         cat1.setName("Bobi");
-        System.out.println(cat2 + " is plaing with " + cat1);
-        cat2.play();
-        System.out.println(dog1);
-        dog1.getName();
+        System.out.println(cat2.getName().toString() + " is plaing with " + cat1.getName().toString());
+        dog1.play();
+        System.out.println(dog1.getName().toString());
         dog1.setName("Bibi");
-        System.out.println("New name for Ella is " +dog2);
+        System.out.println("New name for Ella is " + dog2.getName().toString());
         dog2.play();
-        System.out.println(dog2 + "is a cute dog");
-        parrot1.getName();
-        System.out.println("We present you " + parrot1 + "parrot.");
-        parrot2.getName();
-        parrot2.play();
+        System.out.println(dog2.getName().toString() + " is a cute dog");
+        parrot1.play();
+        System.out.println("We present you " + parrot1.getName().toString() + " parrot.");
         parrot2.setName("Blue");
-        System.out.println("The parrot name is" + parrot2);
-        fish1.getName();
-        fish2.getName();
-        System.out.println("Fish 1" + fish1 + "fish 2" + fish2);
+        System.out.println("The parrot name is " + parrot2.getName().toString());
         fish1.play();
+        System.out.println("Fish 1 " + fish1.getName().toString() + " fish 2 " + fish2.getName().toString());
+
 
 
     }
