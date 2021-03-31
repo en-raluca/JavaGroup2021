@@ -1,4 +1,4 @@
-package com.en.elena;
+package com.en.elena.arraystrings;
 
 public class ArrayExercises {
 
