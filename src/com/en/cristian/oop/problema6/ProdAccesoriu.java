@@ -18,6 +18,6 @@ public class ProdAccesoriu extends Produs {
 
     @Override
     public double applyDiscount(double discount) {
-        return discount * 0.5;
+        return getPret() * discount;
     }
 }

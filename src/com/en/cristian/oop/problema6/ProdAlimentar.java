@@ -18,6 +18,6 @@ public class ProdAlimentar extends Produs {
 
     @Override
     public double applyDiscount(double discount) {
-        return gramaj * discount;
+        return getPret() * discount;
     }
 }
