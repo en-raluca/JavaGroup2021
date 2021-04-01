@@ -18,6 +18,9 @@ public class ProdElectronic extends Produs{
 
     @Override
     public void applyDiscount(double discount) {
-        super.applyDiscount(discount);
+        double pretulActual = getPret();
+        double noulPret = pretulActual - discount * pretulActual / 100;
+        setPret(noulPret);
+
     }
 }

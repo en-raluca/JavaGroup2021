@@ -6,7 +6,7 @@ package com.en.diana.Homework3OOP;
                    - ProElectronic: model
                    - ProdAccesoriu: marime */
 
-public class Produs {
+public abstract class Produs {
     private int id;
     private String nume;
     private double pret;
@@ -41,9 +41,7 @@ public class Produs {
         this.pret = pret;
     }
 
-    public void applyDiscount(double discount) {
-        System.out.println(pret-discount);
-    }
+    public abstract void applyDiscount(double discount);
 
     @Override
     public String toString() {

@@ -5,7 +5,7 @@ package com.en.diana.Homework3OOP;
     child classes   - FullTimeEmployee: monthlySalary, calculatePay(){return monthlySalary;}
                      - PartTimeEmployee: nrOfHoursWorked, pricePerHour, calculatePay(){return nrOfHoursWorked *
                       pricePerHour;}*/
-public class Employee {
+public abstract class Employee {
     private String name;
     private String address;
 
@@ -30,9 +30,7 @@ public class Employee {
         this.address = address;
     }
 
-    public double calculatePay() {
-        return 0;
-    }
+    public abstract double calculatePay();
 
     @Override
     public String toString() {
