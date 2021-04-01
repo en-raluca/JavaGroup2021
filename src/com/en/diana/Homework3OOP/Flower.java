@@ -28,7 +28,6 @@ public class Flower extends Plant {
 
     @Override
     public void saySomethingSpecialAbout(){
-        super.saySomethingSpecialAbout();
         System.out.println("Life is the flower for which love is the honey!");
     }
 }

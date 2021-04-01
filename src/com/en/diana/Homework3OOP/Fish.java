@@ -7,7 +7,6 @@ public class Fish extends Pet {
 
     @Override
     public void play() {
-        super.play();
         System.out.println("pestele inoata in acvariu");
     }
 }

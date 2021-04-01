@@ -7,7 +7,6 @@ public class Parrot extends Pet {
 
     @Override
     public void play() {
-        super.play();
         System.out.println("papagalul canta");
     }
 }

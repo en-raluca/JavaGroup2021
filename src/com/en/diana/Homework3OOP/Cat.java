@@ -7,7 +7,6 @@ public class Cat extends Pet {
 
     @Override
     public void play() {
-        super.play();
         System.out.println("pisica toarce");
     }
 }
