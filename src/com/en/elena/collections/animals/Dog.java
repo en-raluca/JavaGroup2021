@@ -1,6 +1,5 @@
 package com.en.elena.collections.animals;
 
-import com.en.elena.practiceoop.pb2.Pet;
 
 public class Dog extends Pet {
     public Dog(String name, String breed) {
