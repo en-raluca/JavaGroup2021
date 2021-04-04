@@ -23,7 +23,17 @@ public class Pizza extends Food {
 
     @Override
     public double calculatePrice() {
-        return getSize() + pricePerBuc;
+        double addToPrice = 0;
+        if (getSize() == 'S') {
+            addToPrice = 5;
+        } else if (getSize() == 'M') {
+            addToPrice = 10;
+        } else if (getSize() == 'L') {
+            addToPrice = 15;
+        } else {
+            System.out.println("Invalid size!");
+        }
+            return addToPrice + pricePerBuc;
     }
 
     @Override
