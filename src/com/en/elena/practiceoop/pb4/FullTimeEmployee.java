@@ -15,7 +15,7 @@ public class FullTimeEmployee extends Employee{
                 '}';
     }
 
-    @Override
+
     public double calculatePay() {
         return monthlySalary;
     }

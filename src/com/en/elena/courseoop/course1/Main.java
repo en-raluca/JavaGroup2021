@@ -1,4 +1,4 @@
-package com.en.elena.courseoop;
+package com.en.elena.courseoop.course1;
 
 public class Main {
 

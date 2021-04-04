@@ -1,6 +1,6 @@
 package com.en.elena.practiceoop.pb4;
 
-public class PartTimeEmployee extends Employee{
+public class PartTimeEmployee extends Employee implements SalaryCalculation{
     private int nrOfHoursWorked;
     private double pricePerHour;
 
@@ -18,10 +18,6 @@ public class PartTimeEmployee extends Employee{
                 '}';
     }
 
-    @Override
-    public double calculatePay() {
-        return nrOfHoursWorked * pricePerHour;
-    }
 
     public int getNrOfHoursWorked() {
         return nrOfHoursWorked;
@@ -37,5 +33,10 @@ public class PartTimeEmployee extends Employee{
 
     public void setPricePerHour(double pricePerHour) {
         this.pricePerHour = pricePerHour;
+    }
+
+    @Override
+    public double calculateSalary() {
+        return 0;
     }
 }

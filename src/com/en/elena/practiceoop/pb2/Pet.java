@@ -1,6 +1,6 @@
 package com.en.elena.practiceoop.pb2;
 
-public class Pet {
+public abstract class Pet {
     private String name;
     private String breed;
 
@@ -9,7 +9,7 @@ public class Pet {
         this.breed = breed;
     }
 
-    public void play() {}
+    public abstract void play();
 
     public String getName() {
         return name;

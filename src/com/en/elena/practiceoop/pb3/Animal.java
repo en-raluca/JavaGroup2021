@@ -1,6 +1,6 @@
 package com.en.elena.practiceoop.pb3;
 
-public class Animal {
+public class Animal implements ComportamentAnimal{
     private String name;
     private String category;
 
@@ -9,7 +9,6 @@ public class Animal {
         this.category = category;
     }
 
-    public void makeSound() {}
 
     public String getName() {
         return name;
@@ -25,5 +24,10 @@ public class Animal {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    @Override
+    public void makeSound() {
+
     }
 }

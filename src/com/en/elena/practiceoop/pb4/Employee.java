@@ -10,8 +10,6 @@ public class Employee {
         this.address = address;
     }
 
-    public double calculatePay() {return 0;}
-
     public String getName() {
         return name;
     }
@@ -34,5 +32,6 @@ public class Employee {
                 "name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 '}';
+
     }
 }
