@@ -1,6 +1,8 @@
 package com.en.raul.Problema1;
 
 
+import java.util.List;
+
 public class Flower extends Plant {
     String culoare;
     int nrPetale;
@@ -29,5 +31,14 @@ public class Flower extends Plant {
     @Override
     public void saySomethingSpecialAbout(){
         System.out.println("Life is the flower for which love is the honey!");
+    }
+
+    @Override
+    public String toString() {
+        return "Flower{" +
+                "culoare='" + culoare + '\'' +
+                ", nrPetale=" + nrPetale +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

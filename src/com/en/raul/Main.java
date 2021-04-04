@@ -3,6 +3,9 @@ package com.en.raul;
 import com.en.raul.Problema1.Flower;
 import com.en.raul.Problema1.Plant;
 import com.en.raul.Problema1.Tree;
+import com.en.raul.Problema12.BoardGame;
+import com.en.raul.Problema12.Game;
+import com.en.raul.Problema12.VideoGame;
 import com.en.raul.Problema2.*;
 import com.en.raul.Problema4.Employee;
 import com.en.raul.Problema4.FullTimeEmployee;
@@ -14,11 +17,16 @@ import com.en.raul.Problema9.Batman;
 import com.en.raul.Problema9.Hero;
 import com.en.raul.Problema9.Spiderman;
 import com.en.raul.Problema9.Superman;
+import com.en.raul.ObjectManager;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        //Problema 1
+        /*//Problema 1
         Plant plant = new Plant("Trandafir");
         plant.saySomethingSpecialAbout();
         plant.setName("Ghiocel");
@@ -113,6 +121,124 @@ public class Main {
         Spiderman spiderman = new Spiderman("Peter","Climb","Red and blue");
         spiderman.launchThePower();
         spiderman.setCostumeColor("Black and white");
-        System.out.println(spiderman.getCostumeColor());
+        System.out.println(spiderman.getCostumeColor());*/
+
+        //Collections Flori
+
+
+        List<Flower> flowerList = new ArrayList<>();
+
+        Flower flower = new Flower("alb", 5,"Crin");
+        Flower flower2 = new Flower("albastru", 5, "Rozen");
+        Flower flower3 = new Flower("rosie", 5, "trandafir");
+
+        flowerList.add(flower);
+        flowerList.add(flower2);
+        flowerList.add(flower3);
+
+        List<Tree> treeList = new ArrayList<>();
+
+        Tree tree = new Tree(15,100,"Brad");
+        Tree tree2 = new Tree(25,322,"Molid");
+        Tree tree3 = new Tree(67,14,"Pin");
+        Tree tree4 = new Tree(25,542,"Copac");
+
+        treeList.add(tree);
+        treeList.add(tree2);
+        treeList.add(tree3);
+        treeList.add(tree4);
+
+        List<Pet> petList = new ArrayList<>();
+
+        Pet pet = new Pet("Rex","Canin");
+        Pet pet2 = new Pet("Max","Bison");
+        Pet pet3 = new Pet("Doggo","Catel");
+
+        petList.add(pet);
+        petList.add(pet2);
+        petList.add(pet3);
+
+        List<Employee> employeeList = new ArrayList<>();
+
+        Employee emp = new Employee("Adrian","Cluj");
+        Employee emp2 = new Employee("Bogdan","Mures");
+        Employee emp3 = new Employee("Cozma","Timisoara");
+
+        employeeList.add(emp);
+        employeeList.add(emp2);
+        employeeList.add(emp3);
+
+        List<PartTimeEmployee> partTimeEmployeeList = new ArrayList<>();
+
+        PartTimeEmployee partTimeEmployee = new PartTimeEmployee("Raul","Bistrita",40,10.32);
+        PartTimeEmployee partTimeEmployee2 = new PartTimeEmployee("Bogdan","Mures",50,10.32);
+        PartTimeEmployee partTimeEmployee3 = new PartTimeEmployee("Andrei","Bucuresti",89,10.32);
+
+        partTimeEmployeeList.add(partTimeEmployee);
+        partTimeEmployeeList.add(partTimeEmployee2);
+        partTimeEmployeeList.add(partTimeEmployee3);
+
+        List<PersoanaFizica> persoanaFizicaList = new ArrayList<>();
+
+        PersoanaFizica persoanaFizica = new PersoanaFizica("Claudiu","Mihai", "19382153412321","Targu Mures");
+        PersoanaFizica persoanaFizica2 = new PersoanaFizica("Andrei","Neag", "23214123123123","Arges");
+        PersoanaFizica persoanaFizica3 = new PersoanaFizica("Rares","Bogdan", "353242134123123","Cluj Napoca");
+
+        persoanaFizicaList.add(persoanaFizica);
+        persoanaFizicaList.add(persoanaFizica2);
+        persoanaFizicaList.add(persoanaFizica3);
+
+        List<PersoanaJuridica> persoanaJuridicaList = new ArrayList<>();
+
+        PersoanaJuridica persoanaJuridica = new PersoanaJuridica("Florin","Cristian","ABC.inc","str. Kogalniceanu", "CFJS23123413");
+        PersoanaJuridica persoanaJuridica2 = new PersoanaJuridica("Mihai","Goga","Dristor","str. Bucegi", "CHD8877723");
+        PersoanaJuridica persoanaJuridica3 = new PersoanaJuridica("Andre","Albert","Dristor","str. Eminescu", "CFO7812413");
+
+        persoanaJuridicaList.add(persoanaJuridica);
+        persoanaJuridicaList.add(persoanaJuridica2);
+        persoanaJuridicaList.add(persoanaJuridica3);
+
+        List<BoardGame> boardGameList = new ArrayList<>();
+
+        BoardGame boardGame = new BoardGame("Deceit",5,30);
+        BoardGame boardGame2 = new BoardGame("Catan",8,40);
+        BoardGame boardGame3 = new BoardGame("Monopoly",6,60);
+
+        boardGameList.add(boardGame);
+        boardGameList.add(boardGame2);
+        boardGameList.add(boardGame3);
+
+        List<VideoGame> videoGamesList = new ArrayList<>();
+
+        VideoGame videoGame = new VideoGame("Apex","EA");
+        VideoGame videoGame2 = new VideoGame("Forza","Microsoft");
+        VideoGame videoGame3 = new VideoGame("Fifa","EA");
+
+        videoGamesList.add(videoGame);
+        videoGamesList.add(videoGame2);
+        videoGamesList.add(videoGame3);
+
+        List<Game> gamesList = new ArrayList<>();
+
+        Game game = new Game("Borderlands");
+        Game game2 = new Game("Raid");
+        Game game3 = new Game("Counter");
+
+        gamesList.add(game);
+        gamesList.add(game2);
+        gamesList.add(game3);
+
+        ObjectManager ob = new ObjectManager();
+        //System.out.println("Elementele listei filtrate de flori= " + ob.filterFlowersByColor(flowerList,"alb"));
+        //System.out.println("Elementele listei filtrate de copaci= " + ob.filterTreeByHeight(treeList,25));
+        //System.out.println("Lista rasa animale= "+ ob.searchPetByBreed(petList,"Bison"));
+        //System.out.println("Exista angjati la adresa? : "+ ob.searchEmployeeByAddress(employeeList,"Mures"));
+        //System.out.println("Angajati part time dupa nr de ore= " + ob.filterEmployeeByNrOfHoursWorked(partTimeEmployeeList,45));
+        //System.out.println("Exista persoane dupa acest CNP? " + ob.searchPersonByCnp(persoanaFizicaList,"542315481"));
+        //System.out.println("Firma ce apartie acestui CUI este= " + ob.findCompanyNameByCui(persoanaJuridicaList,"CFO7812413"));
+        //System.out.println("Persoane ce lucreaza la aceasta companie: " + ob.filterPersonsByCompany(persoanaJuridicaList,"Abc"));
+        System.out.println("Jocurile sunt urmatoarele: " + ob.filterGamesByNrOfPlayers(boardGameList,7));
+        System.out.println("Exista jocurile de la producator? " + ob.searchGameByProducer(videoGamesList,"Test"));
+        System.out.println("Jocurile care au titlul introdus sunt: " + ob.findGameByTitle(gamesList,"Raid"));
     }
 }

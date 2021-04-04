@@ -39,4 +39,15 @@ public class PersoanaJuridica extends Persoana{
         System.out.println("Persoana juridica cu numele: "+nume+" si prenumele "+prenume + " de la compania " +companie+" adresa "
                 + adresaFirma + " cu CUI: "+cuiFirma);
     }
+
+    @Override
+    public String toString() {
+        return "PersoanaJuridica{" +
+                "nume='" + nume + '\'' +
+                ", prenume='" + prenume + '\'' +
+                ", companie='" + companie + '\'' +
+                ", adresaFirma='" + adresaFirma + '\'' +
+                ", cuiFirma='" + cuiFirma + '\'' +
+                '}';
+    }
 }
