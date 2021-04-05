@@ -173,6 +173,66 @@ public class ObjectManager {
         }
         return personSet;
     }
-    
+
+    public int howManyOrdersForAProduct(Map<String, Order> orderMap, int prodId) {
+        int nrOfOrders = 0;
+        Set<String> keyMap = orderMap.keySet();
+        for (String s : keyMap) {
+            Order order = orderMap.get(s);
+            Product product = order.getProdus();
+            if (product.getId() == prodId) {
+                nrOfOrders++;
+            }
+        }
+        return nrOfOrders;
+    }
+
+
+    public double calculateProductSumFromOrder(Map<String, Order> orderMap, int personId) {
+        double sum = 0;
+        Set<String> keyMap = orderMap.keySet();
+        for (String s : keyMap) {
+            Order order = orderMap.get(s);
+            Person person = order.getPerson();
+            if (person.getId() == personId) {
+                Product product = order.getProdus();
+                sum += product.getPrice();
+            }
+        }
+        return sum;
+    }
+
+    public Set<Integer> orderIdPerson(Map<String, Order> orderMap, int personId) {
+        Set<Integer> orderList = new HashSet<>();
+        List<Product> productList = new ArrayList<>();
+        Set<String> keyMap = orderMap.keySet();
+        for (String s : keyMap) {
+            Order order = orderMap.get(s);
+            Person person = order.getPerson();
+            if (person.getId() == personId) {
+                Product product = order.getProdus();
+                productList.add(product);
+                for (Product p : productList) {
+                    orderList.add(p.getId());
+                }
+            }
+        }
+        return orderList;
+    }
+
+    public Map<String, Person> personIdOrder(Map<String, Order> orderMap, int prodId) {
+        Map<String, Person> personMap = new HashMap<>();
+        Set<String> keyMap = orderMap.keySet();
+        for(String s: keyMap) {
+            Order order = orderMap.get(s);
+            Product product = order.getProdus();
+            if(product.getId() == prodId) {
+                String orderId = order.getId();
+                Person person = order.getPerson();
+                personMap.put(orderId, person);
+            }
+        }
+        return personMap;
+    }
 
 }
