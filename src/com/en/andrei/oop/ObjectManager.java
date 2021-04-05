@@ -2,6 +2,9 @@ package com.en.andrei.oop;
 
 import com.en.andrei.oop.problem1.Flower;
 import com.en.andrei.oop.problem1.Tree;
+import com.en.andrei.oop.problem10.Order;
+import com.en.andrei.oop.problem10.Person;
+import com.en.andrei.oop.problem10.Product;
 import com.en.andrei.oop.problem12.BoardGame;
 import com.en.andrei.oop.problem12.Game;
 import com.en.andrei.oop.problem2.Pet;
@@ -11,9 +14,7 @@ import com.en.andrei.oop.problem6.ProdElectronic;
 import com.en.andrei.oop.problem7.Book;
 import com.en.andrei.oop.problem7.ElectronicBook;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by atpop on 05 Apr 2021
@@ -127,5 +128,51 @@ public class ObjectManager {
         return myGame;
     }
 
+    public boolean checkIfProdIsFree(Product product) {
+        boolean isFree = false;
+        double price = product.getPrice();
+        if (price == 0) {
+            isFree = true;
+        }
+        return isFree;
+    }
+
+    public Set<Person> findPersonFromOrder(List<Order> orderList) {
+        Set<Person> personSet = new HashSet<>();
+        for (Order order : orderList) {
+            Person person = order.getPerson();
+            personSet.add(person);
+        }
+        return personSet;
+    }
+
+    public double getPriceOfProductFromOrder(Map<String, Order> orderMap, int idProd) {
+        double productPrice = 0;
+        Set<String> keyMap = orderMap.keySet();
+        for (String s : keyMap) {
+            Order order = orderMap.get(s);
+            Product product = order.getProdus();
+            if (product.getId() == idProd) {
+                productPrice = product.getPrice();
+            }
+        }
+        return productPrice;
+    }
+
+    public Set<Person> extractPersonsFromOrder(Map<String, Order> orderMap, int idProd) {
+        Set<Person> personSet = new HashSet<>();
+        Set<String> orderIds = orderMap.keySet();
+        for (String s : orderIds) {
+            Order order = orderMap.get(s);
+            Product product = order.getProdus();
+            int prodId = product.getId();
+            if (prodId == idProd) {
+                Person person = order.getPerson();
+                personSet.add(person);
+            }
+        }
+        return personSet;
+    }
+    
 
 }

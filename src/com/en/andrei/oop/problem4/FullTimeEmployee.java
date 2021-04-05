@@ -8,8 +8,8 @@ public class FullTimeEmployee extends Employee {
 
     private double monthlySalary;
 
-    public FullTimeEmployee(String name, String address, double monthlySalary) {
-        super(name, address);
+    public FullTimeEmployee(String name, String address, String employeeId, double monthlySalary) {
+        super(name, address, employeeId);
         this.monthlySalary = monthlySalary;
     }
 
