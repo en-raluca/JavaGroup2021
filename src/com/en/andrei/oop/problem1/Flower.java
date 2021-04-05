@@ -1,5 +1,7 @@
 package com.en.andrei.oop.problem1;
 
+import java.util.List;
+
 /**
  * Created by atpop on 31 Mar 2021
  */
@@ -35,4 +37,5 @@ public class Flower extends Plant {
     public void setNrPetale(int nrPetale) {
         this.nrPetale = nrPetale;
     }
+
 }

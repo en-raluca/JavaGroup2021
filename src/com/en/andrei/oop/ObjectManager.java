@@ -1,0 +1,131 @@
+package com.en.andrei.oop;
+
+import com.en.andrei.oop.problem1.Flower;
+import com.en.andrei.oop.problem1.Tree;
+import com.en.andrei.oop.problem12.BoardGame;
+import com.en.andrei.oop.problem12.Game;
+import com.en.andrei.oop.problem2.Pet;
+import com.en.andrei.oop.problem4.Employee;
+import com.en.andrei.oop.problem4.PartTimeEmployee;
+import com.en.andrei.oop.problem6.ProdElectronic;
+import com.en.andrei.oop.problem7.Book;
+import com.en.andrei.oop.problem7.ElectronicBook;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+/**
+ * Created by atpop on 05 Apr 2021
+ */
+
+public class ObjectManager {
+
+    public List<Flower> filterFlowersByColour(List<Flower> flowerList, String colour) {
+        List<Flower> filteredFlowerList = new ArrayList<>();
+        for (Flower f : flowerList) {
+            if (f.getColour().equals(colour)) {
+                filteredFlowerList.add(f);
+            }
+        }
+        return filteredFlowerList;
+    }
+
+    public List<Tree> filterTreesByHeight(List<Tree> treeList, int height) {
+        List<Tree> filteredTreeList = new ArrayList<>();
+        for (Tree t : treeList) {
+            if (t.getHeight() > height) {
+                filteredTreeList.add(t);
+            }
+        }
+        return filteredTreeList;
+    }
+
+    public boolean searchPetByBreed(List<Pet> petList, String breed) {
+        List<Pet> myPetList = new ArrayList<>(petList);
+        boolean isBreed = false;
+        for (Pet p : myPetList) {
+            if (p.getRasa().equals(breed)) {
+                isBreed = true;
+            }
+        }
+        return isBreed;
+    }
+
+    public boolean searchEmployeeByAddress(List<Employee> employeeList, String address) {
+        boolean isEmployee = false;
+        for (Employee e : employeeList) {
+            if (e.getAddress().equals(address)) {
+                isEmployee = true;
+            }
+        }
+        return isEmployee;
+    }
+
+    public List<PartTimeEmployee> filterEmployeeByNrOfHoursWorked(List<PartTimeEmployee> employeeList, int nrOfHoursWorked) {
+        List<PartTimeEmployee> employeesNrOfHoursWorked = new ArrayList<>();
+        for (PartTimeEmployee pt : employeeList) {
+            if (pt.getNrOfHoursWorked() >= nrOfHoursWorked) {
+                employeesNrOfHoursWorked.add(pt);
+            }
+        }
+        return employeesNrOfHoursWorked;
+    }
+
+    public boolean searchProductByModel(List<ProdElectronic> productList, String model) {
+        boolean isProduct = false;
+        for (ProdElectronic pe : productList) {
+            if (pe.getModel().equals(model)) {
+                isProduct = true;
+            }
+        }
+        return isProduct;
+    }
+
+    public List<Book> filterBooksByAuthor(List<Book> bookList, String author) {
+        List<Book> myFilteredBook = new ArrayList<>();
+        for (Book b : bookList) {
+            if (b.getAuthor().equals(author)) {
+                myFilteredBook.add(b);
+            }
+        }
+        return myFilteredBook;
+    }
+
+    public String findBookFormatByTitle(List<ElectronicBook> bookList, String title) {
+        String bookNameWithFormat = "";
+        for (ElectronicBook eb : bookList) {
+            if (eb.getFormat().equals(title)) {
+                bookNameWithFormat = eb.getTitle();
+            }
+        }
+        return bookNameWithFormat;
+    }
+
+    public List<BoardGame> filterGamesByNrOfPlayers(List<BoardGame> gameList, int nrOfPlayers) {
+        List<BoardGame> filteredGame = new ArrayList<>();
+        for (BoardGame bg : gameList) {
+            if (bg.getNrOfPlayers() >= nrOfPlayers) {
+                filteredGame.add(bg);
+            }
+        }
+        return filteredGame;
+    }
+
+    public Game findGameByTitle(List<Game> gameList, String titlu) {
+        Game myGame = new Game() {
+            @Override
+            public void howToPlay() {
+                System.out.println("My game");
+            }
+        };
+        for (Game g : gameList) {
+            if (g.getTitle().equals(titlu)) {
+                myGame.setTitle(titlu);
+            }
+        }
+        return myGame;
+    }
+
+
+}
