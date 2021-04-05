@@ -10,7 +10,8 @@ public class Tree extends Plant {
         this.age = age;
     }
 
-    public double getHeight() {
+    public double
+    getHeight() {
 
         return height;
     }
@@ -28,7 +29,10 @@ public class Tree extends Plant {
     public void setAge(int age) {
         this.age = age;
     }
-
+    @Override
+    public String toString(){
+        return "Tree name= " + this.getName() + ", height= " + this.height + ", age= " + this.age;
+    }
     @Override
     public void saySomethingSpecialAbout() {
         super.saySomethingSpecialAbout();

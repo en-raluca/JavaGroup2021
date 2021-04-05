@@ -25,6 +25,8 @@ public class Employee {
         this.address = address;
     }
 
-    public void calculatePay() {
+    @Override
+    public String toString(){
+        return "Nume: " + name + "Adresa: " + address;
     }
 }

@@ -1,13 +1,16 @@
 package com.en.celia.OOP;
 
-public class Cat extends Pet {
-    public Cat(String nume, String rasa) {
-        super(nume, rasa);
+public class Cat extends Pet implements Pets{
+    public Cat(String name, String breed) {
+        super(name, breed);
     }
 
     @Override
+    public String toString(){
+        return "Flower name= " + this.getName() + " breed: " + getBreed();
+    }
+    @Override
     public void play() {
-        super.play();
         System.out.println("pisica toarce");
     }
 }
