@@ -3,22 +3,17 @@ package com.en.diana.homeworkOOP.exercitiul5;
 
 public class PersoanaJuridica extends Persoana {
     private String companie;
-    private int cuiFirma;
+    private String cuiFirma;
     private String adresaFirma;
 
 
-    public PersoanaJuridica(String nume, String prenume, String companie, int cuiFirma, String adresaFirma) {
+    public PersoanaJuridica(String nume, String prenume, String companie, String cuiFirma, String adresaFirma) {
         super(nume, prenume);
         this.companie = companie;
         this.cuiFirma = cuiFirma;
         this.adresaFirma = adresaFirma;
     }
 
-    public PersoanaJuridica(String companie, int cuiFirma, String adresaFirma) {
-        this.companie = companie;
-        this.cuiFirma = cuiFirma;
-        this.adresaFirma = adresaFirma;
-    }
 
     public String getCompanie() {
         return companie;
@@ -28,11 +23,11 @@ public class PersoanaJuridica extends Persoana {
         this.companie = companie;
     }
 
-    public int getCuiFirma() {
+    public String getCuiFirma() {
         return cuiFirma;
     }
 
-    public void setCuiFirma(int cuiFirma) {
+    public void setCuiFirma(String cuiFirma) {
         this.cuiFirma = cuiFirma;
     }
 
