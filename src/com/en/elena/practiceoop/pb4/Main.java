@@ -7,9 +7,9 @@ public class Main {
     public static void main(String[] args) {
         Employee employee1 = new Employee("Ana", "Cluj Napoca", "1");
         Employee employee2 = new Employee("Alex", "Baia Mare", "2");
-        FullTimeEmployee employee3 = new FullTimeEmployee("Mirela", "Cluj Napoca", 20000);
-        FullTimeEmployee employee4 = new FullTimeEmployee("Irina", "Brasov", 30000);
-        PartTimeEmployee employee5 = new PartTimeEmployee("Adina", "Sinaia", 100, 19);
+        FullTimeEmployee employee3 = new FullTimeEmployee("Mirela", "Cluj Napoca", "1",  20000);
+        FullTimeEmployee employee4 = new FullTimeEmployee("Irina", "Brasov", "2", 30000);
+        PartTimeEmployee employee5 = new PartTimeEmployee("Adina", "Sinaia","3", 100, 19);
 
         System.out.println(employee1.toString());
         employee2.setAddress("Brasov");
