@@ -10,9 +10,11 @@ import com.en.raul.Problema4.Employee;
 import com.en.raul.Problema4.PartTimeEmployee;
 import com.en.raul.Problema5.PersoanaFizica;
 import com.en.raul.Problema5.PersoanaJuridica;
+import com.en.raul.Tema5Map.Order;
+import com.en.raul.Tema5Map.Person;
+import com.en.raul.Tema5Map.Product;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ObjectManager {
 
@@ -120,5 +122,69 @@ public class ObjectManager {
             }
         }
         return listRez;
+    }
+
+    public Set<Person> extractPersonsFromOrder(List<Order> ordersList){
+        Set<Person> personSet = new HashSet<>();
+        for(Order o : ordersList){
+            personSet.add(o.getPersoana());
+        }
+        return personSet;
+    }
+
+    public int getNumberOfTimesProductBought(Map<String,Order> orderMap, int idOfProduct){
+        int rezultat=0;
+        Set<String> keySet = orderMap.keySet();
+        for(String s:keySet){
+            Order o = orderMap.get(s);
+            Product product = o.getProdus();
+            if(product.getId() == idOfProduct){
+                rezultat++;
+            }
+        }
+        return rezultat;
+    }
+
+    public double getSumOfOrders(Map<String,Order> orderMap, int idOfPerson){
+        double rezultat=0;
+        Set<String> keySet = orderMap.keySet();
+        for(String s : keySet){
+            Order order = orderMap.get(s);
+            Person person = order.getPersoana();
+            Product product = order.getProdus();
+            if(person.getId() == idOfPerson){
+                double pretComanda = product.getPret();
+                rezultat += pretComanda;
+            }
+        }
+        return rezultat;
+    }
+
+    public List<String> getOrderIds(Map<String,Order> orderMap, int idOfPerson){
+        List<String> orderList = new ArrayList<>();
+        Set<String> keySet = orderMap.keySet();
+        for (String s : keySet){
+            Order order = orderMap.get(s);
+            Person person = order.getPersoana();
+            Product product = order.getProdus();
+            if(person.getId() == idOfPerson){
+                orderList.add(order.getId());
+            }
+        }
+        return orderList;
+    }
+
+    public Map<String, Person> getPersonWhoBought(Map<String, Order> orderMap, int idOfProduct){
+        Map<String,Person> resultMap = new HashMap<>();
+        Set<String> keySet = orderMap.keySet();
+        for(String s : keySet){
+            Order order = orderMap.get(s);
+            Product product = order.getProdus();
+            Person person = order.getPersoana();
+            if(product.getId() == idOfProduct){
+                resultMap.put(order.getId(),person);
+            }
+        }
+        return resultMap;
     }
 }

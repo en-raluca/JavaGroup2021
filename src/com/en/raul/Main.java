@@ -18,10 +18,11 @@ import com.en.raul.Problema9.Hero;
 import com.en.raul.Problema9.Spiderman;
 import com.en.raul.Problema9.Superman;
 import com.en.raul.ObjectManager;
+import com.en.raul.Tema5Map.Order;
+import com.en.raul.Tema5Map.Person;
+import com.en.raul.Tema5Map.Product;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
@@ -237,8 +238,38 @@ public class Main {
         //System.out.println("Exista persoane dupa acest CNP? " + ob.searchPersonByCnp(persoanaFizicaList,"542315481"));
         //System.out.println("Firma ce apartie acestui CUI este= " + ob.findCompanyNameByCui(persoanaJuridicaList,"CFO7812413"));
         //System.out.println("Persoane ce lucreaza la aceasta companie: " + ob.filterPersonsByCompany(persoanaJuridicaList,"Abc"));
-        System.out.println("Jocurile sunt urmatoarele: " + ob.filterGamesByNrOfPlayers(boardGameList,7));
+        /*System.out.println("Jocurile sunt urmatoarele: " + ob.filterGamesByNrOfPlayers(boardGameList,7));
         System.out.println("Exista jocurile de la producator? " + ob.searchGameByProducer(videoGamesList,"Test"));
-        System.out.println("Jocurile care au titlul introdus sunt: " + ob.findGameByTitle(gamesList,"Raid"));
+        System.out.println("Jocurile care au titlul introdus sunt: " + ob.findGameByTitle(gamesList,"Raid"));*/
+
+        Product prod1 = new Product("Telefon","Electronice",20,2);
+        Product prod2 = new Product("Ciocolata","Alimente",10.32,1);
+
+        Person p = new Person("Pop","Andrei",12,5);
+        Person p2 = new Person("Ioan","Emil",31,3);
+
+        Order order1 = new Order("1", prod1,p);
+        Order order2 = new Order("2", prod2,p);
+        Order order3 = new Order("4", prod1,p2);
+        Order order4 = new Order("53", prod1,p2);
+
+
+        List<Order> orderList = new ArrayList<>();
+        orderList.add(order1);
+        orderList.add(order2);
+
+        Set<Person> personSet = ob.extractPersonsFromOrder(orderList);
+        //System.out.println("Lista de persoane este: " + personSet);
+
+        Map<String ,Order> orderMap = new HashMap<>();
+        orderMap.put("1",order1);
+        orderMap.put("3",order2);
+        orderMap.put("4",order3);
+        orderMap.put("7",order4);
+
+        //System.out.println("Numarul de comenzi pentru acest produs este: " + ob.getNumberOfTimesProductBought(orderMap,1));
+        //System.out.println("Suma comenzilor este: " + ob.getSumOfOrders(orderMap,5));
+        //System.out.println("Id-urile comenzilor sunt: " + ob.getOrderIds(orderMap,5));
+        System.out.println("Persoana care a cumparat este: " + ob.getPersonWhoBought(orderMap,1));
     }
 }
