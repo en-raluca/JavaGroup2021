@@ -1,4 +1,4 @@
-package com.en.elena.courseoop.course1;
+package com.en.elena.courseoop;
 
 public class Person {
     private String name;

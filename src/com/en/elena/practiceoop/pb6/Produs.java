@@ -37,13 +37,25 @@ public class Produs {
     public void setPret(double pret) {
         this.pret = pret;
     }
+//
+//    @Override
+//    public String toString() {
+//        return "Produs{" +
+//                "id=" + id +
+//                ", nume='" + nume + '\'' +
+//                ", pret=" + pret +
+//                '}';
 
     @Override
-    public String toString() {
-        return "Produs{" +
-                "id=" + id +
-                ", nume='" + nume + '\'' +
-                ", pret=" + pret +
-                '}';
+    public boolean equals(Object o){
+        Produs produs = (Produs) o;
+        return produs.getId()==id;
     }
-}
+    @Override
+    public int hashCode(){
+        return (int) (31*id);
+    }
+    @Override
+    public String toString(){
+    return "id " + id +  "nume " + nume + "pret " + pret;
+}}
