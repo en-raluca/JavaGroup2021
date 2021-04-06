@@ -1,14 +1,13 @@
 package com.en.celia.OOP;
 
-public class Parrot extends Pet {
-    public Parrot(String nume, String rasa) {
-        super(nume, rasa);
+public class Parrot extends Pet implements Pets{
+    public Parrot(String name, String breed) {
+        super(name, breed);
     }
 
 
     @Override
     public void play() {
-        super.play();
         System.out.println("papagalul canta");
     }
 }

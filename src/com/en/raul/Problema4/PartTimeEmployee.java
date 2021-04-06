@@ -30,4 +30,14 @@ public class PartTimeEmployee extends Employee{
     public void calculatePay(){
         System.out.println("Salarul lunar va fi: "+ nrOfHoursWorked*pricePerHour);
     }
+
+    @Override
+    public String toString() {
+        return "PartTimeEmployee{" +
+                "name='" + name + '\'' +
+                ", Address='" + Address + '\'' +
+                ", nrOfHoursWorked=" + nrOfHoursWorked +
+                ", pricePerHour=" + pricePerHour +
+                '}';
+    }
 }

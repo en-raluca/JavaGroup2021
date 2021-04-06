@@ -28,4 +28,12 @@ public class Pet {
     public void play(){
         System.out.println("Play with " +nume);
     }
+
+    @Override
+    public String toString() {
+        return "Pet{" +
+                "nume='" + nume + '\'' +
+                ", rasa='" + rasa + '\'' +
+                '}';
+    }
 }

@@ -27,4 +27,12 @@ public class Employee {
     public void calculatePay(){
 
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", Address='" + Address + '\'' +
+                '}';
+    }
 }

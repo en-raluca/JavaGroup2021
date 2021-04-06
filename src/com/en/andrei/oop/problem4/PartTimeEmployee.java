@@ -9,8 +9,9 @@ public class PartTimeEmployee extends Employee {
     private int nrOfHoursWorked;
     private int pricePerHour;
 
-    public PartTimeEmployee(String name, String address, int nrOfHoursWorked, int pricePerHour) {
-        super(name, address);
+
+    public PartTimeEmployee(String name, String address, String employeeId, int nrOfHoursWorked, int pricePerHour) {
+        super(name, address, employeeId);
         this.nrOfHoursWorked = nrOfHoursWorked;
         this.pricePerHour = pricePerHour;
     }

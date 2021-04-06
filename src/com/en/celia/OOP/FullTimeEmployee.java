@@ -1,6 +1,6 @@
 package com.en.celia.OOP;
 
-public class FullTimeEmployee extends Employee {
+public class FullTimeEmployee extends Employee implements CalculareSalar{
     private double monthlySalary;
 
     public FullTimeEmployee(String name, String address, double monthlySalary) {
@@ -19,8 +19,12 @@ public class FullTimeEmployee extends Employee {
     }
 
     @Override
+    public String toString(){
+        return "Nume " + getName() + ", adresa " + getAddress() + ", salariul lunar: " + monthlySalary;
+    }
+
+    @Override
     public void calculatePay() {
-        super.calculatePay();
         System.out.println(monthlySalary);
     }
 

@@ -1,6 +1,6 @@
 package com.en.celia.OOP;
 
-public class PartTimeEmployee extends Employee {
+public class PartTimeEmployee extends Employee implements CalculareSalar{
     private int nrOfHoursWorked;
     private double pricePerHour;
 
@@ -27,8 +27,12 @@ public class PartTimeEmployee extends Employee {
     }
 
     @Override
+    public String toString(){
+        return "Nume " + getName() + ", adresa " + getAddress() + ", nr of hours worked: " + nrOfHoursWorked + ", price per hour" + pricePerHour;
+    }
+
+    @Override
     public void calculatePay() {
-        super.calculatePay();
         System.out.println(nrOfHoursWorked * pricePerHour);
     }
 

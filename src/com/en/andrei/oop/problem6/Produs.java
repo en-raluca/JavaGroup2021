@@ -1,5 +1,7 @@
 package com.en.andrei.oop.problem6;
 
+import java.util.Objects;
+
 /**
  * Created by atpop on 31 Mar 2021
  */
@@ -42,5 +44,25 @@ public class Produs {
 
     public void applyDiscount() {
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        Produs produs = (Produs) o;
+        return produs.getId() == id;
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * id;
+    }
+
+    @Override
+    public String toString() {
+        return "Produs{" +
+                "id=" + id +
+                ", nume='" + nume + '\'' +
+                ", pret=" + pret +
+                '}';
     }
 }

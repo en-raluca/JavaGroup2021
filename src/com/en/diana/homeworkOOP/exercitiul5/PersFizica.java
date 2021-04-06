@@ -2,20 +2,20 @@ package com.en.diana.homeworkOOP.exercitiul5;
 
 
 public class PersFizica extends Persoana {
-    private long cnp;
+    private String cnp;
     private String domiciliu;
 
-    public PersFizica(String nume, String prenume, int cnp, String domiciliu) {
+    public PersFizica(String nume, String prenume, String cnp, String domiciliu) {
         super(nume, prenume);
         this.cnp = cnp;
         this.domiciliu = domiciliu;
     }
 
-    public long getCnp() {
+    public String getCnp() {
         return cnp;
     }
 
-    public void setCnp(int cnp) {
+    public void setCnp(String cnp) {
         this.cnp = cnp;
     }
 

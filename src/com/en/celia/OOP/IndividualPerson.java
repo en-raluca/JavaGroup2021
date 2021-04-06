@@ -29,8 +29,13 @@ public class IndividualPerson extends Person {
     }
 
     @Override
+    public String toString(){
+        return " Persoana cu numele: " + getFirstName() + " " + getLastName();
+    }
+
+    @Override
     public void showPersonDetails() {
         super.showPersonDetails();
-        System.out.println("Are cnp: " + cnp + " si domiciliul " + domiciliu);
+        System.out.println("are cnp: " + cnp + " si domiciliul " + domiciliu);
     }
 }

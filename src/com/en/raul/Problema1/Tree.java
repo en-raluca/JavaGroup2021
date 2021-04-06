@@ -30,4 +30,13 @@ public class Tree extends Plant {
     public void saySomethingSpecialAbout(){
         System.out.println("There are a lot of trees at Botanical Garden!");
     }
+
+    @Override
+    public String toString() {
+        return "Tree{" +
+                "name='" + name + '\'' +
+                ", height=" + height +
+                ", age=" + age +
+                '}';
+    }
 }

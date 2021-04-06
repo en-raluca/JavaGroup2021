@@ -1,30 +1,29 @@
 package com.en.celia.OOP;
 
 public class Pet {
-    private String nume;
-    private String rasa;
+    private String name;
+    private String breed;
 
-    public Pet(String nume, String rasa) {
-        this.nume = nume;
-        this.rasa = rasa;
+    public Pet(String name, String breed) {
+        this.name = name;
+        this.breed = breed;
     }
 
-    public String getNume() {
-        return nume;
+    public String getName() {
+        return name;
     }
 
-    public String getRasa() {
-        return rasa;
+    public String getBreed() {
+        return breed;
     }
 
-    public void setNume(String nume) {
-        this.nume = nume;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setRasa(String rasa) {
-        this.rasa = rasa;
+    public void setBreed(String breed) {
+        this.breed = breed;
     }
 
-    public void play() {
-    }
+
 }
