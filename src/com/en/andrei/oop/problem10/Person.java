@@ -59,6 +59,19 @@ public class Person {
     }
 
     @Override
+    public int hashCode() {
+        return 31 * id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        Person person = (Person) o;
+        if (this.id == person.getId()) {
+            return true;
+        } else return false;
+    }
+
+    @Override
     public String toString() {
         return "Person{" +
                 "firstName='" + firstName + '\'' +

@@ -174,6 +174,8 @@ public class ObjectManager {
         return personSet;
     }
 
+    // MAP METHODS
+
     public int howManyOrdersForAProduct(Map<String, Order> orderMap, int prodId) {
         int nrOfOrders = 0;
         Set<String> keyMap = orderMap.keySet();
