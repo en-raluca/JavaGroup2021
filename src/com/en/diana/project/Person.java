@@ -1,6 +1,8 @@
 package com.en.diana.project;
 
 
+import java.util.Date;
+
 public class Person {
     private int id;
     private String cnp;
@@ -8,14 +10,18 @@ public class Person {
     private String LastName;
     private String email;
     private String phoneNr;
+    private Date dateOfBirth;
+    private Address address;
 
-    public Person(int id, String cnp, String firstName, String lastName, String email, String phoneNr) {
+    public Person(int id, String cnp, String firstName, String lastName, String email, String phoneNr, Date dateOfBirth, Address address) {
         this.id = id;
         this.cnp = cnp;
         this.firstName = firstName;
         LastName = lastName;
         this.email = email;
         this.phoneNr = phoneNr;
+        this.dateOfBirth = dateOfBirth;
+        this.address = address;
     }
 
     public int getId() {
@@ -66,6 +72,22 @@ public class Person {
         this.phoneNr = phoneNr;
     }
 
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
@@ -75,6 +97,8 @@ public class Person {
                 ", LastName='" + LastName + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNr='" + phoneNr + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", address=" + address +
                 '}';
     }
 

@@ -16,8 +16,7 @@ private String level;
 private String trainingType;
 private List<Course> courseList;
 
-    public Training( int id, String code, String name, int nrOfParticipants, String level,
-                    String trainingType, List<Course> courseList) {
+    public Training(int id, String code, String name, int nrOfParticipants, String level, String trainingType) {
         this.id = id;
         this.code = code;
         this.name = name;

@@ -1,18 +1,28 @@
 package com.en.diana.project;
 
-public class Employee {
+import java.util.Date;
+
+public class Employee extends Person{
     private int employeeId;
     private Location workLocation;
     private String jobTitle;
     private boolean isLineManager;
     private boolean isCareerCoach;
+    private Date enrollCompanyDate;
+    private Date leaveCompanyDate;
 
-    public Employee(int employeeId, Location workLocation, String jobTitle, boolean isLineManager, boolean isCareerCoach) {
+
+    public Employee(int id, String cnp, String firstName, String lastName, String email, String phoneNr,
+                    Date dateOfBirth, Address address, int employeeId, Location workLocation, String jobTitle,
+                    boolean isLineManager, boolean isCareerCoach, Date enrollCompanyDate) {
+        super(id, cnp, firstName, lastName, email, phoneNr, dateOfBirth, address);
         this.employeeId = employeeId;
         this.workLocation = workLocation;
         this.jobTitle = jobTitle;
         this.isLineManager = isLineManager;
         this.isCareerCoach = isCareerCoach;
+        this.enrollCompanyDate = enrollCompanyDate;
+        this.leaveCompanyDate = leaveCompanyDate;
     }
 
     public int getEmployeeId() {
@@ -55,6 +65,22 @@ public class Employee {
         isCareerCoach = careerCoach;
     }
 
+    public Date getEnrollCompanyDate() {
+        return enrollCompanyDate;
+    }
+
+    public void setEnrollCompanyDate(Date enrollCompanyDate) {
+        this.enrollCompanyDate = enrollCompanyDate;
+    }
+
+    public Date getLeaveCompanyDate() {
+        return leaveCompanyDate;
+    }
+
+    public void setLeaveCompanyDate(Date leaveCompanyDate) {
+        this.leaveCompanyDate = leaveCompanyDate;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -63,6 +89,8 @@ public class Employee {
                 ", jobTitle='" + jobTitle + '\'' +
                 ", isLineManager=" + isLineManager +
                 ", isCareerCoach=" + isCareerCoach +
+                ", enrollCompanyDate=" + enrollCompanyDate +
+                ", leaveCompanyDate=" + leaveCompanyDate +
                 '}';
     }
 }

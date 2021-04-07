@@ -1,13 +1,15 @@
 package com.en.diana.project;
 
-public abstract class ExternalTrainer extends Person implements Trainer{
+import java.util.Date;
+
+public class ExternalTrainer extends Person implements Trainer{
     private String professionalDescription;
     private String link;
     private double amountPerHour;
 
-    public ExternalTrainer(int id, String cnp, String firstName, String lastName, String email, String phoneNr,
-                           String professionalDescription, String link, double amountPerHour) {
-        super(id, cnp, firstName, lastName, email, phoneNr);
+
+    public ExternalTrainer(int id, String cnp, String firstName, String lastName, String email, String phoneNr, Date dateOfBirth, Address address, String professionalDescription, String link, double amountPerHour) {
+        super(id, cnp, firstName, lastName, email, phoneNr, dateOfBirth, address);
         this.professionalDescription = professionalDescription;
         this.link = link;
         this.amountPerHour = amountPerHour;
@@ -48,4 +50,8 @@ public abstract class ExternalTrainer extends Person implements Trainer{
                 '}';
     }
 
+    @Override
+    public double calculateTrainerRenumeration(TrainingGroup trainingGroup) {
+        return 0;
+    }
 }
