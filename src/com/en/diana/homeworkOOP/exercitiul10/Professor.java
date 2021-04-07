@@ -3,8 +3,8 @@ package com.en.diana.homeworkOOP.exercitiul10;
 public class Professor extends Person {
     public double salary;
 
-    public Professor(String nume, String prenume, String adresa, double salary) {
-        super(nume, prenume, adresa);
+    public Professor(int id, String nume, String prenume, String adresa, double salary) {
+        super(id, nume, prenume, adresa);
         this.salary = salary;
     }
 

@@ -1,51 +1,36 @@
 package com.en.diana.homeworkOOP.exercitiul6;
 
+import com.en.diana.homeworkOOP.exercitiul10.Person;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        //tema OOP
-//        ProdAlimentar faina = new ProdAlimentar(89, "faina", 2.99, 500);
-//        ProdAccesoriu sacosa = new ProdAccesoriu(99, "geanta", 199.99, 'M');
-//        ProdElectronic cafetira = new ProdElectronic(90, "cafetiera", 500, "italiano");
-//        System.out.println(faina.getGramaj());
-//        faina.setGramaj(1000);
-//        System.out.println(faina.getGramaj());
-//        sacosa.setPret(300);
-//        cafetira.applyDiscount(20);
-//        System.out.println(cafetira.toString());
-//        sacosa.applyDiscount(20);
-//        faina.applyDiscount(1.70);
-//
-//        //training, polymorphism
-//        Produs ulei = new ProdAlimentar(89, "ulei", 2.99, 500);
-//        Produs cafet = new ProdElectronic(90, "cafetiera", 90, "italiano");
-//        System.out.println(ulei.getPret());
-//        ulei.applyDiscount(10);
-//        System.out.println(ulei.getPret());
-//        System.out.println(cafet.getPret());
-//        cafet.applyDiscount(20);
-//        System.out.println(cafet.getPret());
-//        ProdAlimentar prod2 = (ProdAlimentar) ulei;
-//        double rez = prod2.getGramaj();
-//        System.out.println(rez);
-//        //  cand nu stim ce e in spatele variabilei
-//        if (cafet instanceof ProdElectronic) {
-//            ProdElectronic prod = (ProdElectronic) cafet;
-//        }
-//
-//        ObjectManager manager = new ObjectManager();
-//        boolean uleiulEsteGratis = manager.checkIfProductIsFree(ulei);
-//        System.out.println(uleiulEsteGratis);
-//        boolean cafetEsteGratis = manager.checkIfProductIsFree(cafet);
-//        System.out.println(cafetEsteGratis);
+
+        //-----------------------TEMA 3 OOP-----------------
+
+        ProdAlimentar faina = new ProdAlimentar(89, "faina", 2.99, 500);
+        ProdAccesoriu sacosa = new ProdAccesoriu(99, "geanta", 199.99, 'M');
+        ProdElectronic cafetira = new ProdElectronic(90, "cafetiera", 500, "italiano");
+        System.out.println(faina.getGramaj());
+        faina.setGramaj(1000);
+        System.out.println(faina.getGramaj());
+        sacosa.setPret(300);
+        cafetira.applyDiscount(20);
+        System.out.println(cafetira.toString());
+        sacosa.applyDiscount(20);
+        faina.applyDiscount(1.70);
+
+        //-----------------------TEMA 4 COLLECTIONS-----------------------
 
         //exercitiul 10 Collections
         /*- filtreaza lista de produse avand pretul mai ieftin decat un pret dat ca parametru
         public List<Produs> filterProductsByPrice(List<Produs> productList, double pret) */
         //Construire obiecte tip ProdusAlimentar
-        ProdAlimentar faina = new ProdAlimentar(89, "faina", 2.99, 250);
+        ProdAlimentar faina1 = new ProdAlimentar(89, "faina", 2.99, 250);
         ProdAlimentar ulei = new ProdAlimentar(90, "ulei", 6.99, 500);
         ProdAlimentar zahar = new ProdAlimentar(91, "zahar", 4.99, 500);
         //Creare lista de obieste tip ProdusAlimentar
@@ -88,6 +73,26 @@ public class Main {
         productElectronicList.add(2, laptop);
         boolean modelByName = manager.searchProductByModel(productElectronicList, "Garmin");
         System.out.println(modelByName);
+
+//---------------------------TEMA 5 SET,MAP--------------------------
+
+        Produs paste = new ProdAlimentar(1, "paste", 2.99, 500);
+        Produs orez = new ProdAlimentar(2, "orez", 90, 1000);
+        Person femeie = new Person(1, "ana", "maria", "cluj");
+        Person barbat = new Person(2, "pop", "ioan", "cluj");
+        Order comanda1 = new Order("1", paste, femeie);
+        Order comanda2 = new Order("2", orez, barbat);
+        Map<String, Order> orderMap = new HashMap();
+        orderMap.put(comanda1.getId(), comanda1);
+        orderMap.put(comanda2.getId(), comanda2);
+        System.out.println("Mapul initial este: " + orderMap);
+        System.out.println("Produsul a fost cumparat de: " + manager.calcNrOfBuyingAProduct(orderMap, 2) + " ori!");
+        System.out.println("Suma comenzilor persoanei este de: " + manager.sumOfPersonOrders(orderMap, 1));
+        System.out.println("Id-urile comenzilor sale: " + manager.returnIdsOfPersonsOrder(orderMap, 2));
+        System.out.println("Noul map este format din : " + manager.getPersonsOrderId(orderMap, 1));
+        System.out.println("Map-ul nou este: " + manager.changedMap(orderMap));
+
     }
 }
+
 

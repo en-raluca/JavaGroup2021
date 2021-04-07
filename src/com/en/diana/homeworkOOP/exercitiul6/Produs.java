@@ -41,4 +41,15 @@ public abstract class Produs {
     public String toString() {
         return "Id: " + id + " nume: " + nume + " pret: " + pret;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        Produs produs = (Produs) o;
+        return produs.getId() == id;
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * id;
+    }
 }

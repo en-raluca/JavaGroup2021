@@ -2,6 +2,7 @@ package com.en.diana.homeworkOOP.exercitiul6;
 
 import com.en.diana.homeworkOOP.exercitiul1.Flower;
 import com.en.diana.homeworkOOP.exercitiul1.Tree;
+import com.en.diana.homeworkOOP.exercitiul10.Person;
 import com.en.diana.homeworkOOP.exercitiul2.Pet;
 import com.en.diana.homeworkOOP.exercitiul3.Animal;
 import com.en.diana.homeworkOOP.exercitiul4.Employee;
@@ -11,8 +12,7 @@ import com.en.diana.homeworkOOP.exercitiul5.Persoana;
 import com.en.diana.homeworkOOP.exercitiul5.PersoanaJuridica;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ObjectManager {
 
@@ -186,5 +186,82 @@ public class ObjectManager {
         return modelProd;
     }
 
+//-------------------TEMA MAP METHODS-----------
 
+    public int calcNrOfBuyingAProduct(Map<String, Order> orderMap, int idProduct) {
+        int result = 0;
+        Set<String> keySet = orderMap.keySet();
+        for (String keys : keySet) {
+            Order order = orderMap.get(keys);
+            Produs produs = order.getProdus();
+            System.out.println("id:" + order.getId());
+            System.out.println("id check" + idProduct);
+            if (produs.getId() == idProduct) {
+                result++;
+                System.out.println("result" + result);
+            }
+        }
+        return result;
+    }
+
+    public double sumOfPersonOrders(Map<String, Order> orderMap, int idOfPerson) {
+        double result = 0;
+        Set<String> keySet = orderMap.keySet();
+        for (String keys : keySet) {
+            Order order = orderMap.get(keys);
+            Person person = order.getPerson();
+            Produs produs = order.getProdus();
+            if (person.getId() == idOfPerson) {
+                double total = produs.getPret();
+
+                result = total;
+            }
+        }
+        return result;
+    }
+
+    public List<String> returnIdsOfPersonsOrder(Map<String, Order> orderMap, int idOfPerson) {
+        List<String> personOrdersIds = new ArrayList<>();
+        Set<String> keySet = orderMap.keySet();
+        for (String keys : keySet) {
+            Order order = orderMap.get(keys);
+            Person person = order.getPerson();
+            Produs produs = order.getProdus();
+            if (person.getId() == idOfPerson) {
+                personOrdersIds.add(order.getId());
+            }
+        }
+        return personOrdersIds;
+    }
+
+    public Map<String, Person> getPersonsOrderId(Map<String, Order> orderMap, int idOfProduct) {
+        Map<String, Person> myNewMap = new HashMap();
+        Set<String> keySet = orderMap.keySet();
+        for (String keys : keySet) {
+            Order order = orderMap.get(keys);
+            Person person = order.getPerson();
+            Produs produs = order.getProdus();
+            if (produs.getId() == idOfProduct) {
+                myNewMap.put(order.getId(), person);
+            }
+        }
+        return myNewMap;
+    }
+
+    public Map<Integer, Integer> changedMap(Map<String, Order> orderMap) {
+        Map<Integer, Integer> myNewMap = new HashMap();
+        Set<String> keySet = orderMap.keySet();
+        int nrComenzi = 0;
+        for (String keys : keySet) {
+            Order order = orderMap.get(keys);
+            Person person = order.getPerson();
+            Produs produs = order.getProdus();
+            int id = person.getId();
+            if (id == produs.getId()) {
+                nrComenzi++;
+                myNewMap.put(id, nrComenzi);
+            }
+        }
+        return myNewMap;
+    }
 }
