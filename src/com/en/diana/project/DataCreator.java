@@ -3,11 +3,12 @@ package com.en.diana.project;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class DataCreator {
 
-    public List<Person> createPersonList() throws ParseException {
+    public static void main(String[] args) throws ParseException {
         List<Person> personList = new ArrayList<>();
 
         Address address = new Address("Strada Fericirii", 17, "Cluj-Napoca", "Romania", 400482);
@@ -75,10 +76,7 @@ public class DataCreator {
         personList.add(person30);
         personList.add(person31);
 
-        return personList;
-    }
 
-    public List<Training> createTrainingList() {
         List<Training> trainingList = new ArrayList<>();
 
         // create first training object
@@ -140,7 +138,87 @@ public class DataCreator {
         trainingList.add(training3);
         trainingList.add(training4);
 
-        return trainingList;
+
+        // create first training group object
+        Date startDate1 = new SimpleDateFormat("dd/MM/yyyy").parse("04/12/2018");
+        Date endDate1 = new SimpleDateFormat("dd/MM/yyyy").parse("31/01/2019");
+        Trainer trainer1 = null;
+        if (person1 instanceof EmployeeTrainer) {
+            EmployeeTrainer employeeTrainer1 = (EmployeeTrainer) person1;
+            trainer1 = employeeTrainer1;
+        } else if (person1 instanceof ExternalTrainer) {
+            ExternalTrainer externalTrainer1 = (ExternalTrainer) person1;
+            trainer1 = externalTrainer1;
+        }
+
+        List<TrainingGroup> trainingGroupList = new ArrayList<>();
+        TrainingGroup trainingGroup1 = new TrainingGroup(1, startDate1, endDate1, Location.UBC, training1, trainer1);
+        List<Employee> participantList1 = getSpecificEmployeeList(training1.getNrOfParticipants(), personList);
+        trainingGroup1.setEmployeeList(participantList1);
+        // create second training group object
+        Date startDate2 = new SimpleDateFormat("dd/MM/yyyy").parse("01/02/2019");
+        Date endDate2 = new SimpleDateFormat("dd/MM/yyyy").parse("31/03/2019");
+        Trainer trainer2 = null;
+        if (person2 instanceof EmployeeTrainer) {
+            EmployeeTrainer employeeTrainer2 = (EmployeeTrainer) person2;
+            trainer2 = employeeTrainer2;
+        } else if (person2 instanceof ExternalTrainer) {
+            ExternalTrainer externalTrainer2 = (ExternalTrainer) person2;
+            trainer2 = externalTrainer2;
+        }
+
+        TrainingGroup trainingGroup2 = new TrainingGroup(2, startDate2, endDate2, Location.UBC, training2, trainer2);
+        List<Employee> participantList2 = getSpecificEmployeeList(training2.getNrOfParticipants(), personList);
+        trainingGroup2.setEmployeeList(participantList2);
+        // create third training group object
+        Date startDate3 = new SimpleDateFormat("dd/MM/yyyy").parse("14/01/2019");
+        Date endDate3 = new SimpleDateFormat("dd/MM/yyyy").parse("15/02/2019");
+        Trainer trainer3 = null;
+        if (person3 instanceof EmployeeTrainer) {
+            EmployeeTrainer employeeTrainer3 = (EmployeeTrainer) person3;
+            trainer3 = employeeTrainer3;
+        } else if (person1 instanceof ExternalTrainer) {
+            ExternalTrainer externalTrainer1 = (ExternalTrainer) person3;
+            trainer3 = externalTrainer1;
+        }
+
+        TrainingGroup trainingGroup3 = new TrainingGroup(3, startDate3, endDate3, Location.UBC, training3, trainer3);
+        List<Employee> participantList3 = getSpecificEmployeeList(training3.getNrOfParticipants(), personList);
+        trainingGroup3.setEmployeeList(participantList3);
+        // create fourth training group object
+        Date startDate4 = new SimpleDateFormat("dd/MM/yyyy").parse("01/02/2019");
+        Date endDate4 = new SimpleDateFormat("dd/MM/yyyy").parse("01/03/2019");
+        Trainer trainer4 = null;
+        if (person4 instanceof EmployeeTrainer) {
+            EmployeeTrainer employeeTrainer4 = (EmployeeTrainer) person4;
+            trainer4 = employeeTrainer4;
+        } else if (person4 instanceof ExternalTrainer) {
+            ExternalTrainer externalTrainer4 = (ExternalTrainer) person4;
+            trainer4 = externalTrainer4;
+        }
+        TrainingGroup trainingGroup4 = new TrainingGroup(4, startDate4, endDate4, Location.UBC, training4, trainer4);
+        List<Employee> participantList4 = getSpecificEmployeeList(training4.getNrOfParticipants(), personList);
+        trainingGroup4.setEmployeeList(participantList4);
+        trainingGroupList.add(trainingGroup1);
+        trainingGroupList.add(trainingGroup2);
+        trainingGroupList.add(trainingGroup3);
+        trainingGroupList.add(trainingGroup4);
+
     }
 
+    public static List<Employee> getSpecificEmployeeList(int nrOfEmployee, List<Person> personList) {
+        List<Employee> employeeList = new ArrayList<>();
+        for (Person person : personList) {
+            if (person instanceof Employee) {
+                Employee employee = (Employee) person;
+                employeeList.add(employee);
+                nrOfEmployee--;
+                if (nrOfEmployee == 0) {
+                    break;
+                }
+            }
+        }
+
+        return employeeList;
+    }
 }

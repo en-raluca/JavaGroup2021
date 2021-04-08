@@ -13,14 +13,14 @@ public class TrainingGroup {
     private List<Employee> employeeList;
 
     public TrainingGroup(int id, Date startDate, Date endDate, Location location,
-                         Training training, Trainer trainer, List<Employee> employeeList) {
+                         Training training, Trainer trainer) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
         this.location = location;
         this.training = training;
         this.trainer = trainer;
-        this.employeeList = employeeList;
+
     }
 
     public int getId() {
