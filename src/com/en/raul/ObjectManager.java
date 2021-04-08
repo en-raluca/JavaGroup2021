@@ -1,5 +1,6 @@
 package com.en.raul;
 
+import com.en.raul.FinalProject.*;
 import com.en.raul.Problema1.Flower;
 import com.en.raul.Problema1.Tree;
 import com.en.raul.Problema12.BoardGame;
@@ -186,5 +187,138 @@ public class ObjectManager {
             }
         }
         return resultMap;
+    }
+
+    public int getNumberOfTrainings(List<Training> trainingList, int minNumberOfParticipants) {
+        int nrOfTrainings = 0;
+        for(Training t : trainingList){
+            if(t.getNrOfParticipants() >= minNumberOfParticipants){
+                nrOfTrainings++;
+            }
+        }
+        return nrOfTrainings;
+    }
+
+    public Map<Location,Integer> getNrOfEmployee(List<Employee> employeeList){
+        Map<Location,Integer> resultMap = new HashMap<>();
+        for(Employee e : employeeList){
+            Location l = e.getWorkLocation();
+            if(resultMap.containsKey(l)){
+                int nrEmp = resultMap.get(l);
+                resultMap.put(l,nrEmp++);
+            }else{
+                resultMap.put(l,1);
+            }
+        }
+        return resultMap;
+    }
+
+    public Set<Trainer> getTrainerList (List<TrainingGroup> trainingGroupList, String trainingCode){
+        Set<Trainer> resultSet = new HashSet<>();
+        for(TrainingGroup tr : trainingGroupList){
+            Training training = tr.getTraining();
+            if(training.getCode().equals(trainingCode)){
+                Trainer trainer = tr.getTrainer();
+                resultSet.add(trainer);
+            }
+        }
+        return resultSet;
+    }
+
+    public Map<Training,Integer> getTrainingDuration(List<Training> trainingList){
+        Map<Training,Integer> resultMap = new HashMap<>();
+        for(Training training : trainingList){
+            int sum=0;
+            List<Course> courseList = training.getCourseList();
+            for(Course c : courseList){
+                int courseDuration = c.getHoursDuration();
+                sum+=courseDuration;
+            }
+            resultMap.put(training,sum);
+        }
+        return resultMap;
+    }
+
+    public List<Training> getTraining(List<TrainingGroup> trainingGroupList, int idAngajat){
+        List<Training> resultList = new ArrayList<>();
+        for(TrainingGroup trainingGroup : trainingGroupList){
+            List<Employee> employeeList = trainingGroup.getEmployeeList();
+            for(Employee e : employeeList){
+                if(e.getEmployeeId() == idAngajat){
+                    resultList.add(trainingGroup.getTraining());
+                }
+            }
+        }
+        return resultList;
+    }
+
+    public Set<Trainer> getTrainers(List<TrainingGroup> trainingGroupList, Training trainingParam){
+        Set<Trainer> resultSet = new HashSet<>();
+        for(TrainingGroup trainingGroup : trainingGroupList){
+            Training training = trainingGroup.getTraining();
+            if(training.equals(trainingParam)){
+                resultSet.add(trainingGroup.getTrainer());
+            }
+        }
+        return resultSet;
+    }
+
+    public int getEmployee(List<TrainingGroup> trainingGroupList, List<Employee> employeeList){
+        int result=0;
+        for(Employee e : employeeList){
+            boolean hasTrainig=false;
+            for(TrainingGroup trainingGroup : trainingGroupList){
+                List<Employee> employeeList1 = trainingGroup.getEmployeeList();
+                if(employeeList1.contains(e)){
+                    hasTrainig=true;
+                }
+            }
+            if(hasTrainig==false){
+                result++;
+            }
+        }
+        return result;
+    }
+
+    public List<com.en.raul.FinalProject.Employee> getLineManager(List<com.en.raul.FinalProject.Employee> employeeList, Location location){
+        List<com.en.raul.FinalProject.Employee> resultList = new ArrayList<>();
+        for(Employee e : employeeList){
+            if((e.isLineManager == true) && e.getWorkLocation()==location){
+                resultList.add(e);
+            }
+        }
+        return resultList;
+    }
+
+    public Map<ExternalTrainer,Integer> getExternalTrainter(List<TrainingGroup> trainingGroupList, List<ExternalTrainer> externalTrainersList){
+        Map<ExternalTrainer,Integer> resultMap = new HashMap<>();
+        for(ExternalTrainer externalTrainer : externalTrainersList){
+            int nrTraineri=0;
+            for(TrainingGroup trainingGroup : trainingGroupList){
+                Trainer trainer = trainingGroup.getTrainer();
+                if(trainer instanceof ExternalTrainer){
+                    ExternalTrainer trainer1 = (ExternalTrainer) trainer;
+                    if(trainer.equals(externalTrainer)){
+                        nrTraineri++;
+                    }
+                }
+            }
+            resultMap.put(externalTrainer,nrTraineri);
+        }
+        return resultMap;
+    }
+
+    public List<Training> getTrainingListWithNonFullCapacity(List<TrainingGroup> trainingGroupList){
+        List<Training> resultList = new ArrayList<>();
+        for(TrainingGroup trainingGroup : trainingGroupList){
+            Training training = trainingGroup.getTraining();
+            int nrOfParticipants = training.getNrOfParticipants();
+            List<com.en.raul.FinalProject.Employee> empList = trainingGroup.getEmployeeList();
+            int nrOfEmp = empList.size();
+            if(nrOfParticipants>nrOfEmp){
+                resultList.add(training);
+            }
+        }
+        return resultList;
     }
 }
