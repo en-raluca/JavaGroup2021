@@ -3,8 +3,8 @@ package com.en.celia.OOP;
 public class FullTimeEmployee extends Employee implements CalculareSalar{
     private double monthlySalary;
 
-    public FullTimeEmployee(String name, String address, double monthlySalary) {
-        super(name, address);
+    public FullTimeEmployee(String name, String address, double monthlySalary, String employeeId) {
+        super(name, address, employeeId);
         this.monthlySalary = monthlySalary;
     }
 

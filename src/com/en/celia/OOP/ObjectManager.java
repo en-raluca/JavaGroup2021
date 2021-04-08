@@ -1,7 +1,6 @@
 package com.en.celia.OOP;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ObjectManager {
     public List<Flower> filterFlowersByColor(List<Flower> flowerList, String color) {
@@ -91,7 +90,83 @@ public class ObjectManager {
         }
         return result;
     }
+    //returnati lista de persoane din clasa Persoana
+    public Set<Persoana> extractPersonsFromOrders(List<Order> orderList){
+        Set<Persoana> personSet = new HashSet<>();
+        for (Order order:orderList){
+            Persoana p = order.getPersoana();
+            personSet.add(p);
+        }
+        return personSet;
+    }
 
+    //verificati daca un produs a fost cumparat vreodata
+    public boolean checkProductFromOrder(List<Order> ordList, int idOfProduct){
+        for(Order o:ordList){
+            Product p = o.getProdus();
+            if(p.getId() == idOfProduct) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public double getPriceOfProductFromOrder(Map<String, Order> orderMap, int idOfProduct){
+        Set<String> orderIds = orderMap.keySet();
+        for(String s: orderIds){
+            Order order = orderMap.get(s);
+            Product prod = order.getProdus();
+            if(prod.getId() == idOfProduct){
+                return prod.getPrice();
+            }
+        }
+        return 0;
+    }
+
+    //returnati oamenii care au cumparat acel produs
+    public Set<Persoana> exctractPersonsFromOrder(Map<String,Order> orderMap, int idOfProduct){
+        Set<String> orderIds = orderMap.keySet();
+        Set<Persoana> personSet = new HashSet<>();
+        for(String mapKey: orderIds){
+            Order order = orderMap.get(mapKey);
+            Product prod = order.getProdus();
+            int id = prod.getId();
+            if(idOfProduct==id){
+                Persoana person = order.getPersoana();
+                personSet.add(person);
+            }
+        }
+        return personSet;
+    }
+
+   // o metoda care returneaza pt un id de produs dat ca parametru, de cate ori a fost cumparat (calculati numarul de comenzi)
+    public int calculateNumberOfOrders (Map <String, Order> orderMap, int idOfProduct){
+        int count = 0;
+        Set<String> mapKey = orderMap.keySet();
+        for(String elem: mapKey){
+            Order order = orderMap.get(elem);
+            Product prod = order.getProdus();
+            if(prod.getId() == idOfProduct){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    //o metoda care returneaza pt un id de persoana dat ca parametru, suma comenzilor sale (calculati suma preturilor produselor din comenzile sale)
+    public double calculateSumOfProductsPerOrders (Map<String, Order> orderMap, int idOfPerson){
+        double suma = 0;
+        Set<String> mapKey = orderMap.keySet();
+        for(String element: mapKey){
+            Order order = orderMap.get(element);
+            Persoana persoana = order.getPersoana();
+            if(persoana.getId() == idOfPerson){
+                Product produs = order.getProdus();
+                suma = suma + produs.getPrice();
+            }
+        }
+        return suma;
+    }
 }
 
 

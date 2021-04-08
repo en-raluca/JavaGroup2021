@@ -4,8 +4,8 @@ public class PartTimeEmployee extends Employee implements CalculareSalar{
     private int nrOfHoursWorked;
     private double pricePerHour;
 
-    public PartTimeEmployee(String name, String address, int nrOfHoursWorked, double pricePerHour) {
-        super(name, address);
+    public PartTimeEmployee(String name, String address, int nrOfHoursWorked, double pricePerHour, String employeeId) {
+        super(name, address,employeeId);
         this.nrOfHoursWorked = nrOfHoursWorked;
         this.pricePerHour = pricePerHour;
     }

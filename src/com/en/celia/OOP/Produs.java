@@ -35,7 +35,5 @@ public class Produs {
         this.pret = pret;
     }
 
-    public void applyDiscount(double discount) {
-        discount = pret * (discount / 100);
-    }
+
 }

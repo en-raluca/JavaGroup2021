@@ -1,7 +1,6 @@
 package com.en.celia.OOP;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
@@ -34,10 +33,10 @@ public class Main {
         p1.play();
 
         //ex4
-        FullTimeEmployee fullTime = new FullTimeEmployee("Pop Marius", "str.Aurel Vlaicu nr.25", 3500.25);
-        FullTimeEmployee fullTime1 = new FullTimeEmployee("Popescu Alexandru", "str.Crizantemelor nr.154", 3650.25);
-        PartTimeEmployee partTime = new PartTimeEmployee("Ionescu Marian", "str. Mihai nr.5", 84, 25);
-        PartTimeEmployee partTime2 = new PartTimeEmployee("Plescan Avram", "str.Romana nr.22", 86, 25);
+        FullTimeEmployee fullTime = new FullTimeEmployee("Pop Marius", "str.Aurel Vlaicu nr.25", 3500.25, "1");
+        FullTimeEmployee fullTime1 = new FullTimeEmployee("Popescu Alexandru", "str.Crizantemelor nr.154", 3650.25,"1");
+        PartTimeEmployee partTime = new PartTimeEmployee("Ionescu Marian", "str. Mihai nr.5", 84, 25,"2");
+        PartTimeEmployee partTime2 = new PartTimeEmployee("Plescan Avram", "str.Romana nr.22", 86, 25,"3");
         fullTime.calculatePay();
         fullTime1.calculatePay();
         partTime.calculatePay();
@@ -135,7 +134,152 @@ public class Main {
         boolean returnPersons = objManager6.searchPersonByCnp(personList,"2981853624598");
         System.out.println(returnPersons);
 
+        //Creare set
+        Set<Employee> set1 = new HashSet();
+        set1.add(fullTime);
+        set1.add(fullTime1);
+        set1.add(partTime);
+        System.out.println(set1.size());
+        set1.contains(fullTime1);
+        for (Employee e:set1){
+            System.out.println(e);
+        }
 
+        System.out.println(fullTime.hashCode());
+        System.out.println(fullTime1.hashCode());
+        System.out.println(partTime.hashCode());
+        System.out.println(fullTime.equals(fullTime1));
+        System.out.println(partTime.equals(fullTime));
+
+        //clasa
+        //creem obiectele
+        Product prod1 = new Product("Carte","Carti",22,1);
+        Product prod2 = new Product("Ciocolata", "Alimente",4,1);
+        Product prod3 = new Product("Paine", "Alimente",3,3);
+
+        //prin metoda get citim valorile variabilelor
+        String numeProd1 = prod1.getNume();
+        System.out.println(numeProd1);
+        double pretProd2 = prod2.getPrice();
+        System.out.println(pretProd2);
+
+        //prin metoda set modificam valorile variabilelor
+        prod1.setNume("Poezii");
+        prod2.setPrice(15);
+
+        //recitim valorile din obiect sa verificam daca s-au modificat
+        numeProd1 = prod1.getNume();
+        System.out.println(numeProd1);
+        pretProd2 = prod2.getPrice();
+        System.out.println(pretProd2);
+
+        Persoana pers1 = new Persoana("Ioan","Pop",33,2);
+        int pers1Age = pers1.getAge();
+        System.out.println(pers1Age);
+        pers1.setAge(35);
+        pers1Age = pers1.getAge();
+        System.out.println(pers1Age);
+
+
+        ProdusAlimentar ciocolata = new ProdusAlimentar("Milka","alimente",5.70,455,256);
+        ProdusVestimentar geanta = new ProdusVestimentar("Guess","genti",7,400,'m');
+
+        ciocolata.showProductInfo();
+        geanta.showProductInfo();
+
+        System.out.println(ciocolata);
+        System.out.println(geanta);
+
+
+
+        List<String> myList = new ArrayList<>();
+        System.out.println("Lista este goala " + myList.isEmpty());
+        myList.add("Rosu");
+        myList.add("Verde");
+        System.out.println(myList);
+        System.out.println(myList.size());
+        boolean result = myList.contains("Blue");
+        System.out.println(result);
+        String culoare = myList.get(1);
+        System.out.println(culoare);
+        System.out.println(myList.indexOf("Blue"));
+        for(String s: myList){
+            System.out.println(s);
+        }
+
+        Iterator<String> iterator = myList.iterator();
+        while(iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+
+        //Creare set
+        Set<Product> set = new HashSet();
+        set.add(prod1);
+        set.add(prod2);
+        set.add(prod3);
+        set.add(prod1);
+        System.out.println(set.size());
+        set.remove(prod3);
+        set.contains(prod2);
+        for (Product element:set){
+            System.out.println(element);
+        }
+        System.out.println(prod1.hashCode());
+        System.out.println(prod2.hashCode());
+        System.out.println(prod3.hashCode());
+        System.out.println(prod1.equals(prod2));
+        System.out.println(prod1.equals(prod3));
+
+        Order order1 = new Order("1", prod1,pers1);
+        Order order2 = new Order("2", prod2,pers1);
+
+        Map<String, Order> myMap = new HashMap();
+        myMap.put(order1.getId(),order1);
+        myMap.put(order2.getId(),order2);
+        boolean containsKey = myMap.containsKey(order2.getId());
+        boolean containsValue = myMap.containsValue(order2);
+        System.out.println(containsKey);
+        System.out.println(containsValue);
+        //myMap.remove(order1.getId(),order2);
+        //myMap.remove(order1.getId(),order1);
+        //myMap.remove(order2.getId());
+
+        //itereaza un map
+        Set<String> keySet =  myMap.keySet();
+        for(String s : keySet){
+            System.out.println("Cheia este: " + s);
+        }
+        //returneaza valorile
+        Collection<Order> values =  myMap.values();
+
+        Iterator<Order> valuesIter = values.iterator();
+        while(valuesIter.hasNext()) {
+            Order o = valuesIter.next();
+            System.out.println(o);
+        }
+
+        Persoana pers = new Persoana("Fineas","Stir",26, 1);
+        Order order3 = new Order("6",prod1,pers1);
+        Order order4 = new Order("7",prod2,pers1);
+        List<Order> orderList = new ArrayList<>();
+        orderList.add(order4);
+        orderList.add(order3);
+       // Set<Persoana> perss = ObjectManager.extractPersonsFromOrders(orderList);
+        System.out.println("Persoana: " + pers);
+
+        //TEMA MAPS
+        System.out.println("De aici incepe tema 5, maps");
+        ObjectManager manager = new ObjectManager();
+
+        Map<String, Order> orderMap = new HashMap<>();
+        orderMap.put(order1.getId(), order1);
+        orderMap.put(order2.getId(), order2);
+        orderMap.put(order3.getId(), order3);
+        int ordersNumber = manager.calculateNumberOfOrders(orderMap, 1);
+        System.out.println(ordersNumber + " este numarul total de comenzi pentru un produs");
+
+        double sumOfProducts = manager.calculateSumOfProductsPerOrders(orderMap, 2);
+        System.out.println("Suma totala a produselor per comenzi este = " + sumOfProducts);
     }
 
 

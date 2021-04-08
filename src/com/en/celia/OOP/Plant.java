@@ -18,4 +18,9 @@ public class Plant {
     public void saySomethingSpecialAbout() {
         System.out.println("To plant a " + " " + name + " " + "is to believe in tomorrow!");
     }
+
+    public String toString() {
+        return "Flower name " + name;
+    }
+
 }
