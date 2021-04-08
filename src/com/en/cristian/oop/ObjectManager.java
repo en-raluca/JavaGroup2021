@@ -1,5 +1,8 @@
 package com.en.cristian.oop;
 
+import com.en.cristian.oop.map.Order;
+import com.en.cristian.oop.map.Person;
+import com.en.cristian.oop.map.Product;
 import com.en.cristian.oop.problema1.Flower;
 import com.en.cristian.oop.problema1.Tree;
 import com.en.cristian.oop.problema2.Pet;
@@ -9,6 +12,8 @@ import com.en.cristian.oop.problema4.PartTimeEmployee;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class ObjectManager {
     public List<Flower> filterFlowersByColor(List<Flower> flowerList, String color) {
@@ -69,5 +74,47 @@ public class ObjectManager {
             }
         }
         return partTimeEmpl;
+    }
+
+    //map
+    public int returnOrdersProduct(Map<String, Order> orderMap, int idProduct) {
+        int orders = 0;
+        Set<String> keySet = orderMap.keySet();
+        for (String sKey : keySet) {
+            Order order = orderMap.get(sKey);
+            Product product = order.getProdus();
+            if (product.getProdId() == idProduct) {
+                orders++;
+            }
+        }
+        return orders;
+    }
+
+    public double returnSumOrdersOfPerson(Map<String, Order> orderMap, int idPerson) {
+        double sumOrders = 0;
+        Set<String> keySet = orderMap.keySet();
+        for (String sKey : keySet) {
+            Order order = orderMap.get(sKey);
+            Product product = order.getProdus();
+            Person person = order.getPersoana();
+            if (person.getPersID() == idPerson) {
+                double totalPrice = product.getPrice();
+                sumOrders += totalPrice;
+            }
+        }
+        return sumOrders;
+    }
+
+    public List<String> returnIdsFromOrders(Map<String, Order> orderMap, int idPerson) {
+        List<String> idList = new ArrayList<>();
+        Set<String> keySet = orderMap.keySet();
+        for (String sKey : keySet){
+            Order order = orderMap.get(sKey);
+            Person person = order.getPersoana();
+            if (person.getPersID()==idPerson){
+                idList.add(order.getId());
+            }
+        }
+        return idList;
     }
 }
