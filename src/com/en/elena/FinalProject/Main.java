@@ -4,6 +4,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
+
+    Employee employee = new Employee(1, Location.CBC, "ssss", "sasa", "sasa", new Address("sdaads", "sad", "asd", "asd", "asd"));
+    Employee employee2 = new Employee(2, Location.CBC, "ssss", "sasa", "sasa", new Address("sdaads", "sad", "asd", "asd", "asd"));
+
+
     public static void printMenu(){
         System.out.println("Please Enter The Command Number");
         System.out.println("1 - Add a new employee");
