@@ -203,7 +203,6 @@ public class DataCreator {
         trainingGroupList.add(trainingGroup2);
         trainingGroupList.add(trainingGroup3);
         trainingGroupList.add(trainingGroup4);
-
     }
 
     public static List<Employee> getSpecificEmployeeList(int nrOfEmployee, List<Person> personList) {
@@ -218,7 +217,6 @@ public class DataCreator {
                 }
             }
         }
-
         return employeeList;
     }
 }
